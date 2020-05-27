@@ -1,0 +1,54 @@
+{{ header }}
+<div class="content-top">
+	{{ content_top }}
+</div>
+<div class="row home_row">
+	{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">
+		{{ content_bottom }}
+	</div>
+    {{ column_right }}
+</div>
+
+
+{{ footer }}
+
+
+<script type="text/javascript"><!--
+
+$(document).ready(function(){
+	$('#testimonial-carousel').owlCarousel({
+		items: 1,
+		singleItem: true,
+		navigation: false,
+		pagination: true,
+		autoPlay: true
+	});
+	// Custom Navigation Events
+	$(".cztestimonial_next").click(function(){
+		$('#testimonial-carousel').trigger('owl.next');
+	})
+	$(".cztestimonial_prev").click(function(){
+		$('#testimonial-carousel').trigger('owl.prev');
+	});	
+		
+	 $('#ourcategory-carousel').owlCarousel({
+		items: 6,
+		singleItem: false,
+		navigation: false,
+		itemsDesktop : [1199,4], 
+		itemsDesktopSmall : [991,3],
+		itemsTablet : [767,3], 
+		itemsTabletSmall: [500,2], 
+		itemsMobile : [400,1],
+		pagination: true
+	});
+});	
+--></script>
