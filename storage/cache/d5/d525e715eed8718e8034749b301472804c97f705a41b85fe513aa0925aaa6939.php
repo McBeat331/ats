@@ -431,21 +431,15 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
                 echo "\" onclick=\"wishlist.add('";
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\"><i class=\"fa fa-heart\"></i></button>
-\t\t\t\t\t\t\t<div class=\"quickview-button\" data-toggle=\"tooltip\" title=\"";
-                // line 145
-                echo (isset($context["quick_view"]) ? $context["quick_view"] : null);
-                echo "\"> <a class=\"quickbox\" href=\"";
-                echo $this->getAttribute($context["product"], "quick", array());
-                echo "\">
-\t\t\t\t\t\t\t\t<i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></div>
+
 \t\t\t\t\t\t\t<button type=\"button\" class=\"compare\" data-toggle=\"tooltip\" title=\"";
-                // line 147
+                // line 146
                 echo (isset($context["button_compare"]) ? $context["button_compare"] : null);
                 echo "\" onclick=\"compare.add('";
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\"><i class=\"fa fa-exchange\"></i></button>
 \t\t\t\t\t\t\t<button type=\"button\" class=\"addtocart\" onclick=\"cart.add('";
-                // line 148
+                // line 147
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "', '";
                 echo $this->getAttribute($context["product"], "minimum", array());
@@ -461,58 +455,34 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
 \t\t\t\t\t\t<div class=\"caption\">
 \t\t\t\t\t\t 
 \t\t\t\t\t\t\t<h4><a href=\"";
-                // line 157
+                // line 156
                 echo $this->getAttribute($context["product"], "href", array());
                 echo "\">";
                 echo $this->getAttribute($context["product"], "name", array());
                 echo "</a></h4>
 \t\t\t\t\t\t\t
-\t\t\t\t\t\t\t<div class=\"rating list-rate\">
-\t\t\t\t\t\t\t\t";
-                // line 160
-                $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(range(1, 5));
-                foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                    // line 161
-                    echo "\t\t\t\t\t\t\t\t";
-                    if (($this->getAttribute($context["product"], "rating", array()) < $context["i"])) {
-                        // line 162
-                        echo "\t\t\t\t\t\t\t\t<span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-\t\t\t\t\t\t\t\t";
-                    } else {
-                        // line 164
-                        echo "\t\t\t\t\t\t\t\t<span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-\t\t\t\t\t\t\t\t";
-                    }
-                    // line 166
-                    echo "\t\t\t\t\t\t\t\t";
-                }
-                $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
-                $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 167
-                echo "\t\t\t\t\t\t   </div>
+
 \t\t\t\t\t\t   
 \t\t\t\t\t\t   <p class=\"desc\">";
-                // line 169
+                // line 160
                 echo $this->getAttribute($context["product"], "description", array());
                 echo "</p>
 \t\t\t\t\t\t\t\t\t\t\t   
 \t\t\t\t\t\t   ";
-                // line 171
+                // line 162
                 if ($this->getAttribute($context["product"], "price", array())) {
-                    // line 172
+                    // line 163
                     echo "\t\t\t\t\t\t\t\t<p class=\"price\">
 \t\t\t\t\t\t\t\t";
-                    // line 173
+                    // line 164
                     if ( !$this->getAttribute($context["product"], "special", array())) {
-                        // line 174
+                        // line 165
                         echo "\t\t\t\t\t\t\t\t";
                         echo $this->getAttribute($context["product"], "price", array());
                         echo "
 \t\t\t\t\t\t\t\t";
                     } else {
-                        // line 176
+                        // line 167
                         echo "\t\t\t\t\t\t\t\t<span class=\"price-new\">";
                         echo $this->getAttribute($context["product"], "special", array());
                         echo "</span> <span class=\"price-old\">";
@@ -520,10 +490,10 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
                         echo "</span>
 \t\t\t\t\t\t\t\t";
                     }
-                    // line 178
+                    // line 169
                     echo "\t\t\t\t\t\t\t\t";
                     if ($this->getAttribute($context["product"], "tax", array())) {
-                        // line 179
+                        // line 170
                         echo "\t\t\t\t\t\t\t\t<span class=\"price-tax\">";
                         echo (isset($context["text_tax"]) ? $context["text_tax"] : null);
                         echo " ";
@@ -531,40 +501,16 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
                         echo "</span>
 \t\t\t\t\t\t\t\t";
                     }
-                    // line 181
+                    // line 172
                     echo "\t\t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t   ";
                 }
-                // line 183
+                // line 174
                 echo "\t\t\t\t\t  
-\t\t\t\t\t\t\t<div class=\"rating\">
-\t\t\t\t\t\t\t  ";
-                // line 185
-                $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(range(1, 5));
-                foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                    // line 186
-                    echo "\t\t\t\t\t\t\t\t ";
-                    if (($this->getAttribute($context["product"], "rating", array()) < $context["i"])) {
-                        // line 187
-                        echo "\t\t\t\t\t\t\t\t <span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-\t\t\t\t\t\t\t\t ";
-                    } else {
-                        // line 189
-                        echo "\t\t\t\t\t\t\t\t <span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-\t\t\t\t\t\t\t\t ";
-                    }
-                    // line 191
-                    echo "\t\t\t\t\t\t\t\t ";
-                }
-                $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
-                $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 192
-                echo "\t\t\t\t\t\t    </div>
+\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t
 \t\t\t\t\t\t    <button type=\"button\" class=\"addtocart\" onclick=\"cart.add('";
-                // line 194
+                // line 177
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "', '";
                 echo $this->getAttribute($context["product"], "minimum", array());
@@ -583,37 +529,37 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 203
+            // line 186
             echo "      </div>
        <div class=\"pagination-wrapper\">
 \t\t\t<div class=\"col-sm-6 text-left page-link\">";
-            // line 205
+            // line 188
             echo (isset($context["pagination"]) ? $context["pagination"] : null);
             echo "</div>
 \t\t\t<div class=\"col-sm-6 text-right page-result\">";
-            // line 206
+            // line 189
             echo (isset($context["results"]) ? $context["results"] : null);
             echo "</div>
 \t   </div>  
       ";
         } else {
-            // line 209
+            // line 192
             echo "      <p>";
             echo (isset($context["text_empty"]) ? $context["text_empty"] : null);
             echo "</p>
       ";
         }
-        // line 211
+        // line 194
         echo "      ";
         echo (isset($context["content_bottom"]) ? $context["content_bottom"] : null);
         echo "</div>
     ";
-        // line 212
+        // line 195
         echo (isset($context["column_right"]) ? $context["column_right"] : null);
         echo "</div>
 </div>
 ";
-        // line 214
+        // line 197
         echo (isset($context["footer"]) ? $context["footer"] : null);
         echo "
 <script type=\"text/javascript\"><!--
@@ -677,7 +623,7 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
 
     public function getDebugInfo()
     {
-        return array (  617 => 214,  612 => 212,  607 => 211,  601 => 209,  595 => 206,  591 => 205,  587 => 203,  568 => 194,  564 => 192,  558 => 191,  554 => 189,  550 => 187,  547 => 186,  543 => 185,  539 => 183,  535 => 181,  527 => 179,  524 => 178,  516 => 176,  510 => 174,  508 => 173,  505 => 172,  503 => 171,  498 => 169,  494 => 167,  488 => 166,  484 => 164,  480 => 162,  477 => 161,  473 => 160,  465 => 157,  449 => 148,  443 => 147,  436 => 145,  430 => 144,  426 => 142,  421 => 140,  417 => 139,  414 => 138,  408 => 134,  403 => 132,  400 => 131,  390 => 128,  385 => 127,  375 => 124,  367 => 123,  362 => 122,  360 => 121,  354 => 117,  350 => 116,  341 => 109,  335 => 108,  327 => 106,  319 => 104,  316 => 103,  312 => 102,  305 => 98,  298 => 93,  292 => 92,  284 => 90,  276 => 88,  274 => 87,  268 => 86,  261 => 82,  252 => 78,  246 => 75,  242 => 74,  237 => 71,  235 => 70,  231 => 69,  227 => 68,  221 => 66,  217 => 64,  213 => 62,  211 => 61,  202 => 56,  198 => 54,  194 => 52,  192 => 51,  186 => 47,  180 => 46,  174 => 45,  168 => 44,  160 => 42,  152 => 40,  149 => 39,  144 => 38,  136 => 36,  128 => 34,  125 => 33,  120 => 32,  112 => 30,  104 => 28,  101 => 27,  97 => 26,  93 => 25,  84 => 21,  78 => 18,  74 => 17,  67 => 16,  64 => 15,  61 => 14,  58 => 13,  55 => 12,  52 => 11,  49 => 10,  47 => 9,  43 => 8,  40 => 7,  29 => 5,  25 => 4,  19 => 1,);
+        return array (  563 => 197,  558 => 195,  553 => 194,  547 => 192,  541 => 189,  537 => 188,  533 => 186,  514 => 177,  509 => 174,  505 => 172,  497 => 170,  494 => 169,  486 => 167,  480 => 165,  478 => 164,  475 => 163,  473 => 162,  468 => 160,  459 => 156,  443 => 147,  437 => 146,  430 => 144,  426 => 142,  421 => 140,  417 => 139,  414 => 138,  408 => 134,  403 => 132,  400 => 131,  390 => 128,  385 => 127,  375 => 124,  367 => 123,  362 => 122,  360 => 121,  354 => 117,  350 => 116,  341 => 109,  335 => 108,  327 => 106,  319 => 104,  316 => 103,  312 => 102,  305 => 98,  298 => 93,  292 => 92,  284 => 90,  276 => 88,  274 => 87,  268 => 86,  261 => 82,  252 => 78,  246 => 75,  242 => 74,  237 => 71,  235 => 70,  231 => 69,  227 => 68,  221 => 66,  217 => 64,  213 => 62,  211 => 61,  202 => 56,  198 => 54,  194 => 52,  192 => 51,  186 => 47,  180 => 46,  174 => 45,  168 => 44,  160 => 42,  152 => 40,  149 => 39,  144 => 38,  136 => 36,  128 => 34,  125 => 33,  120 => 32,  112 => 30,  104 => 28,  101 => 27,  97 => 26,  93 => 25,  84 => 21,  78 => 18,  74 => 17,  67 => 16,  64 => 15,  61 => 14,  58 => 13,  55 => 12,  52 => 11,  49 => 10,  47 => 9,  43 => 8,  40 => 7,  29 => 5,  25 => 4,  19 => 1,);
     }
 }
 /* {{ header }}*/
@@ -824,8 +770,7 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
 /* 							*/
 /* 						<div class="button-group">*/
 /* 							<button type="button" class="wishlist" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>*/
-/* 							<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">*/
-/* 								<i class="fa fa-eye" aria-hidden="true"></i></a></div>*/
+/* */
 /* 							<button type="button" class="compare" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>*/
 /* 							<button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }} ');"><span>{{ button_cart }}</span></button>*/
 /* 						</div>	*/
@@ -838,15 +783,7 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
 /* 						 */
 /* 							<h4><a href="{{ product.href }}">{{ product.name }}</a></h4>*/
 /* 							*/
-/* 							<div class="rating list-rate">*/
-/* 								{% for i in 1..5 %}*/
-/* 								{% if product.rating < i %}*/
-/* 								<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/* 								{% else %}*/
-/* 								<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/* 								{% endif %}*/
-/* 								{% endfor %}*/
-/* 						   </div>*/
+/* */
 /* 						   */
 /* 						   <p class="desc">{{ product.description }}</p>*/
 /* 											   */
@@ -863,15 +800,7 @@ class __TwigTemplate_344663a2888cf8d305bb0dd29481de5e0ca7fa20a51bff72db5c0fa6d35
 /* 								</p>*/
 /* 						   {% endif %}*/
 /* 					  */
-/* 							<div class="rating">*/
-/* 							  {% for i in 1..5 %}*/
-/* 								 {% if product.rating < i %}*/
-/* 								 <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/* 								 {% else %}*/
-/* 								 <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/* 								 {% endif %}*/
-/* 								 {% endfor %}*/
-/* 						    </div>*/
+/* 							*/
 /* 							*/
 /* 						    <button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }} ');"><span>{{ button_cart }}</span></button>				*/
 /* 					*/

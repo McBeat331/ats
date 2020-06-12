@@ -85,11 +85,6 @@ class ControllerExtensionModuleCategoryTab extends Controller {
 				$price = false;
 			}
 
-			if ((float)$result['special']) {
-				$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-			} else {
-				$special = false;
-			}
 
 			if ($this->config->get('config_tax')) {
 				$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
@@ -97,11 +92,6 @@ class ControllerExtensionModuleCategoryTab extends Controller {
 				$tax = false;
 			}
 
-			if ($this->config->get('config_review_status')) {
-				$rating = (int)$result['rating'];
-			} else {
-				$rating = false;
-			}
 
 			$data['products'][] = array(
 				'product_id'  => $result['product_id'],
@@ -110,9 +100,7 @@ class ControllerExtensionModuleCategoryTab extends Controller {
 				'name'        => $result['name'],
 				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 				'price'       => $price,
-				'special'     => $special,
 				'tax'         => $tax,
-				'rating'      => $result['rating'],
 				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 				'quick'       => $this->url->link('product/quick_view','&product_id=' . $result['product_id'])
 			);

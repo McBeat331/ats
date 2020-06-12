@@ -298,7 +298,7 @@ a {
 }
 
 a:hover,a:focus {
-    color: #ffc02e;
+    color: #3baf43;
     text-decoration: none;
 }
 
@@ -2193,8 +2193,8 @@ textarea.input-lg,select[multiple].input-lg {
 
 .btn-default:hover,.open .dropdown-toggle.btn-default {    
     color: #fff;
-    background: #ffc02e;
-    border: 1px solid #ffc02e;
+    background: #3baf43;
+    border: 1px solid #3baf43;
 	-webkit-transition: all 500ms ease 0s;
     -moz-transition: all 500ms ease 0s;
     -o-transition: all 500ms ease 0s;
@@ -2223,8 +2223,8 @@ textarea.input-lg,select[multiple].input-lg {
 
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #ffc02e;
-    border:1px solid #ffc02e;
+    background-color: #3baf43;
+    border:1px solid #3baf43;
 }
 
 .btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary {
@@ -4620,15 +4620,15 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
 .pagination>li>a:hover,.pagination>li>span:hover,.pagination>li>a:focus,.pagination>li>span:focus {
     color: #ffffff;
-    background-color: #ffc02e;
-    border-color: #ffc02e;
+    background-color: #3baf43;
+    border-color: #3baf43;
 }
 
 .pagination>.active>a,.pagination>.active>span,.pagination>.active>a:hover,.pagination>.active>span:hover,.pagination>.active>a:focus,.pagination>.active>span:focus {
     z-index: 2;
     color: #ffffff;
-    background-color: #ffc02e;
-    border-color: #ffc02e;
+    background-color: #3baf43;
+    border-color: #3baf43;
     cursor: default;
 }
 

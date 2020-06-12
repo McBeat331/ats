@@ -1,0 +1,130 @@
+<table class="table">
+ <tr>
+    <td class="col-xs-3">
+    	<h5><span class="required">* </span><strong>{{ entry_code }}</strong></h5>
+        <span class="help"><i class="fa fa-info-circle"></i>&nbsp;{{ text_enable_or_disable }}</span></td>
+    <td class="col-xs-9">
+        <div class="col-xs-4">
+        <select id="Checker" name="alsoviewed[Enabled]" class="form-control">
+            <option value="yes" {{ (data.alsoviewed.Enabled is not empty and data.alsoviewed.Enabled == 'yes') ? 'selected' : '' }}>{{ text_enabled }}</option>
+            <option value="no" {{ (data.alsoviewed.Enabled is empty or data.alsoviewed.Enabled == 'no') ? 'selected' : '' }}>{{ text_disabled }}</option>
+        </select>
+        </div>
+   </td>
+  </tr>
+  <tr>
+    <td class="col-xs-3">
+        <h5><strong>{{ text_image_dimensions }}</strong></h5>
+        <span class="help"><i class="fa fa-info-circle"></i>&nbsp;{{ text_image_dimensions_help}}</span>
+    </td>
+    <td class="col-xs-9">
+        <div class="col-xs-4">
+            <div class="input-group">
+              <span class="input-group-addon">Ширина:&nbsp;</span>
+              <input type="text" class="form-control" name="alsoviewed[PictureWidth]" value="{{ (data.alsoviewed.PictureWidth is defined) ? data.alsoviewed.PictureWidth : '80'}}" />
+              <span class="input-group-addon">{{ text_pixels }}</span>
+            </div><br />
+            <div class="input-group">
+              <span class="input-group-addon">Высота:</span>
+              <input type="text" class="form-control" name="alsoviewed[PictureHeight]" value="{{ (data.alsoviewed.PictureHeight is defined) ? data.alsoviewed.PictureHeight : '80' }}" />
+              <span class="input-group-addon">{{ text_pixels }}</span>
+            </div>
+        </div>
+    </td>
+    </tr>
+    <tr>
+        <td class="col-xs-3">
+        	<h5><strong>{{ text_products }}</strong></h5>
+            <span class="help"><i class="fa fa-info-circle"></i>&nbsp;{{ text_products_help }}</span></td>
+        <td class="col-xs-9">
+            <div class="col-xs-4">
+                <div class="input-group">
+                  	<input type="text" class="form-control" name="alsoviewed[NumberOfProducts]" value="{{ (data.alsoviewed.NumberOfProducts is defined)? data.alsoviewed.NumberOfProducts : '5' }}" />
+					<span class="input-group-addon">{{ text_products_small }}</span>
+                </div>
+            </div>
+        </td>
+    </tr>
+  <tr>
+     <td class="col-xs-3">
+        <h5><strong>{{ custom_css }}</strong></h5>
+        <span class="help"><i class="fa fa-info-circle"></i>&nbsp;{{ custom_css_help }}</span></td>
+     <td class="col-xs-9">
+    	<div class="col-xs-4">
+        	<textarea name="alsoviewed[CustomCSS]" class="form-control AlsoViewedCustomCSS">{{(data.alsoviewed.CustomCSS is defined) ? data.alsoviewed.CustomCSS : '' }}</textarea>
+        </div>
+    </td>
+    </tr>
+</table>
+<script type="text/javascript">
+var toggleCSScheckbox = function() {
+	$('input[type=checkbox][id^=buttonPosCheckbox]').each(function(index, element) {
+		if ($(this).is(':checked')) {
+			$($(this).attr('data-textinput')).removeAttr('disabled');
+		} else {
+			$($(this).attr('data-textinput')).attr('disabled','disabled');
+		}
+	});
+}
+var createBinds = function() {
+	$('input[type=checkbox][id^=buttonPosCheckbox]').unbind('change').bind('change', function() {
+		toggleCSScheckbox();
+	});
+
+	$('.buttonPositionOptionBox').unbind('change').bind('çhange', function() {
+		$($(this).attr('data-checkbox')).removeAttr('checked');
+		toggleCSScheckbox();
+	});
+};
+toggleCSScheckbox();
+createBinds();
+</script>
+     </td>
+  </tr>
+</table>
+<script>
+$('.AlsoViewedLayout input[type=checkbox]').change(function() {
+    if ($(this).is(':checked')) {
+        $('.AlsoViewedItemStatusField', $(this).parent()).val(1);
+    } else {
+        $('.AlsoViewedItemStatusField', $(this).parent()).val(0);
+    }
+});
+$('.AlsoViewedEnabled').change(function() {
+    toggleAlsoViewedActive(true);
+});
+var toggleAlsoViewedActive = function(animated) {
+   if ($('.AlsoViewedEnabled').val() == 'yes') {
+        if (animated)
+            $('.AlsoViewedActiveTR').fadeIn();
+        else
+            $('.AlsoViewedActiveTR').show();
+    } else {
+        if (animated)
+            $('.AlsoViewedsActiveTR').fadeOut();
+        else
+            $('.AlsoViewedActiveTR').hide();
+    }
+}
+toggleAlsoViewedActive(false);
+</script>
+<script>
+$(function() {
+    var $typeSelector = $('#Checker');
+	var $toggleArea2 = $('#mainSettingsTab');
+	 if ($typeSelector.val() === 'yes') {
+			$toggleArea2.show();
+        }
+        else {
+			$toggleArea2.hide();
+        }
+    $typeSelector.change(function(){
+        if ($typeSelector.val() === 'yes') {
+			$toggleArea2.show(300);
+        }
+        else {
+			$toggleArea2.hide(300);
+        }
+    });
+});
+</script>

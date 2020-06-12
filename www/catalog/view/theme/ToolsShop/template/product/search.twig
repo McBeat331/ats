@@ -142,8 +142,7 @@
 							
 						<div class="button-group">
 							<button type="button" class="wishlist" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-							<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">
-								<i class="fa fa-eye" aria-hidden="true"></i></a></div>
+
 							<button type="button" class="compare" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
 							<button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }} ');"><span>{{ button_cart }}</span></button>
 						</div>	
@@ -156,15 +155,7 @@
 						 
 							<h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
 							
-							<div class="rating list-rate">
-								{% for i in 1..5 %}
-								{% if product.rating < i %}
-								<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-								{% else %}
-								<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-								{% endif %}
-								{% endfor %}
-						   </div>
+
 						   
 						   <p class="desc">{{ product.description }}</p>
 											   
@@ -181,15 +172,7 @@
 								</p>
 						   {% endif %}
 					  
-							<div class="rating">
-							  {% for i in 1..5 %}
-								 {% if product.rating < i %}
-								 <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-								 {% else %}
-								 <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-								 {% endif %}
-								 {% endfor %}
-						    </div>
+							
 							
 						    <button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }} ');"><span>{{ button_cart }}</span></button>				
 					

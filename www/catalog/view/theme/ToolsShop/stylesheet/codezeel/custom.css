@@ -422,7 +422,7 @@ span.customSelect.changed {
 /* Responsive menu Css Start */
 .nav-responsive span { display:inline-block;}
 .ie7 .nav-responsive span { display:inline;}
-.nav-responsive { cursor:pointer; display:none; background: #ffc02e; }
+.nav-responsive { cursor:pointer; display:none; background: #3baf43; }
 .main-navigation  ul  li{ list-style:none; position:relative;}
 .nav-responsive .expandable{
 background: url(../../image/codezeel/sprite.png) no-repeat scroll -5px -125px;

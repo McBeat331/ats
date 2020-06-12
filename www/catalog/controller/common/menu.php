@@ -9,7 +9,7 @@ class ControllerCommonMenu extends Controller {
 
 		$data['categories'] = array();
 		$data['all_blogs'] = $this->url->link('information/blogger/blogs');
-		
+        $data['text_blog'] = $this->language->get('blog_title');
 		// Codezeel Added
 		$type="module";
 				

@@ -55,12 +55,10 @@ class ModelCodezeelBlogger extends Model {
 
 		if ($query->rows) {
 			foreach ($query->rows as $blog) {
-				if ($this->getLayoutModule('blogger.' . $blog['module_id'])) {
+
 					$blog_data[] = $blog;
-				}
 			}
 		}
-
 		return $blog_data;
 	}
 

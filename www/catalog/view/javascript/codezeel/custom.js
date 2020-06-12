@@ -565,7 +565,16 @@ $(document).ready(function(){
 		var items = $('#menu  li.top_level');
 		var surplus = items.slice(max_elem, items.length);
 		surplus.wrapAll('<li class="top_level hiden_menu dropdown more_menu"><div class="dropdown-menu">');
-		$('.hiden_menu').prepend('<a href="#" class="level-top">More</a>');
+		var more;
+		if($('html').attr('lang')=='ru')
+		{
+            more="Еще";
+		}
+		else
+		{
+            more="Ще";
+		}
+			$('.hiden_menu').prepend('<a href="#" class="level-top">'+more+'</a>');
 	
 	});
 });

@@ -59,13 +59,13 @@
 	position: absolute;
     z-index: 9;
     width: 100%;
-    top: -40px;
+    top: -34px;
     right: 11px;
     direction: ltr !important;
 }
 .customNavigation a{
-	border: 1px solid #ffc02e;
-    background-color: #ffc02e;
+	border: 1px solid #3baf43;
+    background-color: #3baf43;
     font-size: 0;
     position: absolute;
     font-weight: 300;

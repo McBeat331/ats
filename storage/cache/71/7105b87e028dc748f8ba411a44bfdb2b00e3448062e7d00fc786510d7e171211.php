@@ -23,7 +23,7 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
         // line 4
         echo (isset($context["module"]) ? $context["module"] : null);
         echo "\" class=\"swiper-container\">
-    <div class=\"swiper-wrapper\"> 
+    <div class=\"swiper-wrapper\">
 \t";
         // line 6
         $context['_parent'] = $context;
@@ -65,15 +65,16 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
   </div>
 </div>
 </div>
-<script type=\"text/javascript\"><!--
+<script type=\"text/javascript\">
+  
 \$('#slideshow";
-        // line 18
+        // line 19
         echo (isset($context["module"]) ? $context["module"] : null);
         echo "').swiper({
 \tmode: 'horizontal',
 \tslidesPerView: 1,
 \tpagination: '.slideshow";
-        // line 21
+        // line 22
         echo (isset($context["module"]) ? $context["module"] : null);
         echo "',
 \tpaginationClickable: true,
@@ -84,13 +85,13 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
     autoplayDisableOnInteraction: true,
 \tloop: true
 });
---></script>
+</script>
 
 <script type=\"text/javascript\">
 \t// Can also be used with \$(document).ready()
-\t\$(window).load(function() {\t\t
+\t\$(window).load(function() {
 \t  \$(\"#spinner\").fadeOut(\"slow\");
-\t});\t
+\t});
 </script>";
     }
 
@@ -106,14 +107,14 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
 
     public function getDebugInfo()
     {
-        return array (  77 => 21,  71 => 18,  60 => 10,  56 => 8,  33 => 7,  29 => 6,  24 => 4,  19 => 1,);
+        return array (  78 => 22,  72 => 19,  60 => 10,  56 => 8,  33 => 7,  29 => 6,  24 => 4,  19 => 1,);
     }
 }
 /* <div class="main-slider">*/
 /* <div id="spinner"></div>*/
 /* <div class="swiper-viewport">*/
 /*   <div id="slideshow{{ module }}" class="swiper-container">*/
-/*     <div class="swiper-wrapper"> */
+/*     <div class="swiper-wrapper">*/
 /* 	{% for banner in banners %}*/
 /*       <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>*/
 /*       {% endfor %} </div>*/
@@ -125,7 +126,8 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
 /*   </div>*/
 /* </div>*/
 /* </div>*/
-/* <script type="text/javascript"><!--*/
+/* <script type="text/javascript">*/
+/*   */
 /* $('#slideshow{{ module }}').swiper({*/
 /* 	mode: 'horizontal',*/
 /* 	slidesPerView: 1,*/
@@ -138,11 +140,11 @@ class __TwigTemplate_75d374e53aaf1cb09744267d7eb732f080a3402fdb7dc47e3e6699767e8
 /*     autoplayDisableOnInteraction: true,*/
 /* 	loop: true*/
 /* });*/
-/* --></script>*/
+/* </script>*/
 /* */
 /* <script type="text/javascript">*/
 /* 	// Can also be used with $(document).ready()*/
-/* 	$(window).load(function() {		*/
+/* 	$(window).load(function() {*/
 /* 	  $("#spinner").fadeOut("slow");*/
-/* 	});	*/
+/* 	});*/
 /* </script>*/

@@ -45,24 +45,12 @@ class ControllerExtensionModuleFeatured extends Controller {
 						$price = false;
 					}
 
-					if ((float)$product_info['special']) {
-						$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-					} else {
-						$special = false;
-					}
 
 					if ($this->config->get('config_tax')) {
 						$tax = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
 					} else {
 						$tax = false;
 					}
-
-					if ($this->config->get('config_review_status')) {
-						$rating = $product_info['rating'];
-					} else {
-						$rating = false;
-					}
-
 					$data['products'][] = array(
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
@@ -70,10 +58,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'name'        => $product_info['name'],
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
-						'special'     => $special,
-						'percentsaving' 	 => round((($product_info['price'] - $product_info['special'])/$product_info['price'])*100, 0),
 						'tax'         => $tax,
-						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
 						'quick'       => $this->url->link('product/quick_view','&product_id=' . $product_info['product_id'])
 					);

@@ -1,0 +1,310 @@
+{{ header }}{{ column_left }} 
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-category" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %} 
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %} 
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if (error_warning) %} 
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }} 
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %} 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-megamessage" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-4">
+              <select name="megamessage_status" id="input-status" class="form-control">
+                {% if megamessage_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_message"><span data-toggle="tooltip" title="{{ text_messenger_help }}">{{ text_messenger }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_message" value="{{ megamessage_message }}" placeholder="{{ text_messenger }}" id="input-megamessage_message" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_message_status" id="input-megamessage_message_status" class="form-control">
+                {% if megamessage_message_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_line"><span data-toggle="tooltip" title="{{ text_line_help }}">{{ text_line }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_line" value="{{ megamessage_line }}" placeholder="{{ text_line }}" id="input-megamessage_line" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_line_status" id="input-megamessage_line_status" class="form-control">
+                {% if megamessage_line_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_phone"><span data-toggle="tooltip" title="{{ text_phone_help }}">{{ text_phone }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_phone" value="{{ megamessage_phone }}" placeholder="{{ text_phone }}" id="input-megamessage_phone" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_phone_status" id="input-megamessage_phone_status" class="form-control">
+                {% if megamessage_phone_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_skype"><span data-toggle="tooltip" title="{{ text_skype_help }}">{{ text_skype }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_skype" value="{{ megamessage_skype }}" placeholder="{{ text_skype }}" id="input-megamessage_skype" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_skype_status" id="input-megamessage_skype_status" class="form-control">
+                {% if megamessage_skype_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_vk"><span data-toggle="tooltip" title="{{ text_vk_help }}">{{ text_vk }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_vk" value="{{ megamessage_vk }}" placeholder="{{ text_vk }}" id="input-megamessage_vk" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_vk_status" id="input-megamessage_vk_status" class="form-control">
+                {% if megamessage_vk_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_whatsapp"><span data-toggle="tooltip" title="{{ text_whatsapp_help }}">{{ text_whatsapp }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_whatsapp" value="{{ megamessage_whatsapp }}" placeholder="{{ text_whatsapp }}" id="input-megamessage_whatsapp" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_whatsapp_status" id="input-megamessage_whatsapp_status" class="form-control">
+                {% if megamessage_whatsapp_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_telegram"><span data-toggle="tooltip" title="{{ text_telegram_help }}">{{ text_telegram }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_telegram" value="{{ megamessage_telegram }}" placeholder="{{ text_telegram }}" id="input-megamessage_telegram" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_telegram_status" id="input-megamessage_telegram_status" class="form-control">
+                {% if megamessage_telegram_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_viber"><span data-toggle="tooltip" title="{{ text_viber_help }}">{{ text_viber }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_viber" value="{{ megamessage_viber }}" placeholder="{{ text_viber }}" id="input-megamessage_viber" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_viber_status" id="input-megamessage_viber_status" class="form-control">
+                {% if megamessage_viber_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-megamessage_mail"><span data-toggle="tooltip" title="{{ text_mail_help }}">{{ text_mail }}</span></label>
+            <div class="col-sm-2">
+              <input type="text" name="megamessage_mail" value="{{ megamessage_mail }}" placeholder="{{ text_mail }}" id="input-megamessage_mail" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <select name="megamessage_mail_status" id="input-megamessage_mail_status" class="form-control">
+                {% if megamessage_mail_status %} 
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %} 
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %} 
+              </select>
+            </div>
+          </div>
+
+          <script>
+            (function(h,k,j){function r(a){if(h.event&&h.event.contentOverflow!==j)return{x:h.event.offsetX,y:h.event.offsetY};if(a.offsetX!==j&&a.offsetY!==j)return{x:a.offsetX,y:a.offsetY};var b=a.target.parentNode.parentNode;return{x:a.layerX-b.offsetLeft,y:a.layerY-b.offsetTop{{ '}}' }}function e(a,b,c){a=k.createElementNS(v,a);for(var d in b)a.setAttribute(d,b[d]);if(Object.prototype.toString.call(c)!="[object Array]")c=[c];b=0;for(d=c[0]&&c.length||0;b<d;b++)a.appendChild(c[b]);return a}function l(a,b,c){var d,f,g;a=a%360/60;g=c*b;f=g*(1-Math.abs(a%2-1));d=b=c-=g;a=~~a;d+=[g,f,0,0,f,g][a];b+=[f,g,g,f,0,0][a];c+=[0,0,f,g,g,f][a];a=d*255;b*=255;c*=255;return{r:a,g:b,b:c,hex:"#"+(16777216|c|b<<8|a<<16).toString(16).slice(1){{ '}}' }}function s(a,b,c){if(a>1||b>1||c>1){a/=255;b/=255;c/=255}var d,f;d=Math.max(a,b,c);f=d-Math.min(a,b,c);return{h:(f==0?null:d==a?(b-c)/f:d==b?(c-a)/f+2:(a-b)/f+4)%6*60,s:f==0?0:f/d,v:d{{ '}}' }}function t(a,b,c){return function(d){d=d||h.event;d=r(d);a.h=d.y/b.offsetHeight*360+o;var f=l(a.h,1,1);c.style.backgroundColor=f.hex;a.callback&&a.callback(f.hex,{h:a.h-o,s:a.s,v:a.v},{r:f.r,g:f.g,b:f.b},j,d){{ '}}' }}function u(a,b){return function(c){c=c||h.event;c=r(c);var d=b.offsetHeight;a.s=c.x/b.offsetWidth;a.v=(d-c.y)/d;d=l(a.h,a.s,a.v);a.callback&&a.callback(d.hex,{h:a.h-o,s:a.s,v:a.v},{r:d.r,g:d.g,b:d.b},c){{ '}}' }}function i(a,b,c){if(!(this instanceof i))return new i(a,b,c);this.callback=c;this.h=0;this.v=this.s=1;this.pickerElement=b;this.slideElement=a;if(p=="SVG"){a.appendChild(m.cloneNode(true));b.appendChild(n.cloneNode(true))}else{a.innerHTML=m;b.innerHTML=n}if(a.attachEvent){a.attachEvent("onclick",t(this,a,b));b.attachEvent("onclick",u(this,b))}else if(a.addEventListener){a.addEventListener("click",t(this,a,b),false);b.addEventListener("click",u(this,b),false){{ '}}' }}function q(a,b,c,d){a.h=b.h%360;a.s=b.s;a.v=b.v;b=l(a.h,a.s,a.v);var f={y:a.h*a.slideElement.offsetHeight/360,x:0},g=a.pickerElement.offsetHeight;g={x:a.s*a.pickerElement.offsetWidth,y:g-a.v*g};a.pickerElement.style.backgroundColor=l(a.h,1,1).hex;a.callback&&a.callback(d||b.hex,{h:a.h,s:a.s,v:a.v},c||{r:b.r,g:b.g,b:b.b},g,f)}var p=h.SVGAngle||k.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure","1.1")?"SVG":"VML",n,m,o=15,v="http://www.w3.org/2000/svg";if(p=="SVG"){m=e("svg",{xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"100%",height:"100%"},[e("defs",{},e("linearGradient",{id:"gradient-hsv",x1:"0%",y1:"100%",x2:"0%",y2:"0%"},[e("stop",{offset:"0%","stop-color":"#FF0000","stop-opacity":"1"}),e("stop",{offset:"13%","stop-color":"#FF00FF","stop-opacity":"1"}),e("stop",{offset:"25%","stop-color":"#8000FF","stop-opacity":"1"}),e("stop",{offset:"38%","stop-color":"#0040FF","stop-opacity":"1"}),e("stop",{offset:"50%","stop-color":"#00FFFF","stop-opacity":"1"}),e("stop",{offset:"63%","stop-color":"#00FF40","stop-opacity":"1"}),e("stop",{offset:"75%","stop-color":"#0BED00","stop-opacity":"1"}),e("stop",{offset:"88%","stop-color":"#FFFF00","stop-opacity":"1"}),e("stop",{offset:"100%","stop-color":"#FF0000","stop-opacity":"1"})])),e("rect",{x:"0",y:"0",width:"100%",height:"100%",fill:"url(#gradient-hsv)"})]);n=e("svg",{xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"100%",height:"100%"},[e("defs",{},[e("linearGradient",{id:"gradient-black",x1:"0%",y1:"100%",x2:"0%",y2:"0%"},[e("stop",{offset:"0%","stop-color":"#000000","stop-opacity":"1"}),e("stop",{offset:"100%","stop-color":"#CC9A81","stop-opacity":"0"})]),e("linearGradient",{id:"gradient-white",x1:"0%",y1:"100%",x2:"100%",y2:"100%"},[e("stop",{offset:"0%","stop-color":"#FFFFFF","stop-opacity":"1"}),e("stop",{offset:"100%","stop-color":"#CC9A81","stop-opacity":"0"})])]),e("rect",{x:"0",y:"0",width:"100%",height:"100%",fill:"url(#gradient-white)"}),e("rect",{x:"0",y:"0",width:"100%",height:"100%",fill:"url(#gradient-black)"})])}else if(p=="VML"){m='<DIV style="position: relative; width: 100%; height: 100%"><v:rect style="position: absolute; top: 0; left: 0; width: 100%; height: 100%" stroked="f" filled="t"><v:fill type="gradient" method="none" angle="0" color="red" color2="red" colors="8519f fuchsia;.25 #8000ff;24903f #0040ff;.5 aqua;41287f #00ff40;.75 #0bed00;57671f yellow"></v:fill></v:rect></DIV>';n='<DIV style="position: relative; width: 100%; height: 100%"><v:rect style="position: absolute; left: -1px; top: -1px; width: 101%; height: 101%" stroked="f" filled="t"><v:fill type="gradient" method="none" angle="270" color="#FFFFFF" opacity="100%" color2="#CC9A81" o:opacity2="0%"></v:fill></v:rect><v:rect style="position: absolute; left: 0px; top: 0px; width: 100%; height: 101%" stroked="f" filled="t"><v:fill type="gradient" method="none" angle="0" color="#000000" opacity="100%" color2="#CC9A81" o:opacity2="0%"></v:fill></v:rect></DIV>';k.namespaces.v||k.namespaces.add("v","urn:schemas-microsoft-com:vml","#default#VML")}i.prototype.setHsv=function(a){q(this,a)};i.prototype.setRgb=function(a){q(this,s(a.r,a.g,a.b),a)};i.prototype.setHex=function(a){q(this,s(parseInt(a.substr(1,2),16),parseInt(a.substr(3,2),16),parseInt(a.substr(5,2),16)),j,a)};i.positionIndicators=function(a,b,c,d){if(c){b.style.left="auto";b.style.right="0px";b.style.top="0px";a.style.top=c.y-a.offsetHeight/2+"px"}if(d){b.style.top=d.y-b.offsetHeight/2+"px";b.style.left=d.x-b.offsetWidth/2+"px"{{ '}}' }};h.ColorPicker=i})(window,window.document);
+          </script>
+          <style type="text/css">
+            #picker { width: 200px; height: 200px;float: left;}
+            #slide { width: 30px; height: 200px;float: left; }
+          </style>
+          
+    
+           <div class="row">
+             <div class="col-sm-3">
+               <div id="picker"></div>
+               <div id="slide"></div>
+             </div>
+             <div class="col-sm-1">
+               <div class="mm-button">
+                   <div class="mm-button-img"></div>
+               </div>
+             </div>
+             <div class="col-sm-3">
+               <div class="form-group">
+                 <label class="col-sm-6 control-label" for="input-megamessage_logo">{{ text_logo }}</label>
+                 <div class="col-sm-6">
+                   <input type="text" name="megamessage_logo" value="{{ megamessage_logo }}" placeholder="{{ megamessage_logo }}" id="input-megamessage_logo" class="form-control" />
+                 </div>
+               </div>
+             </div>
+             <div class="col-sm-3">
+               <div class="form-group">
+                 <label class="col-sm-6 control-label" for="input-megamessage_position">{{ text_megamessage_position }}</label>
+                 <div class="col-sm-6">
+                   <select name="megamessage_position" id="input-megamessage_position" class="form-control">
+                     {% if megamessage_position %} 
+                     <option value="1" selected="selected">{{ text_megamessage_position_left }}</option>
+                     <option value="0">{{ text_megamessage_position_right }}</option>
+                     {% else %} 
+                     <option value="1">{{ text_megamessage_position_left }}</option>
+                     <option value="0" selected="selected">{{ text_megamessage_position_right }}</option>
+                     {% endif %} 
+                   </select>
+                 </div>
+               </div>
+             </div>
+           </div>
+       
+       
+         <script type="text/javascript">
+           ColorPicker(
+             document.getElementById('slide'),
+             document.getElementById('picker'),
+             function(hex, hsv, rgb) {
+              $('.mm-button').css('background-color', hex);
+              var box = '0px 0px 5px 0px ' + hex;
+              $('.mm-button').css('box-shadow', box);
+              $('#input-megamessage_logo').val(hex);
+             });
+
+            $('#input-megamessage_logo').on('change', function(){
+           
+              val = $(this).val();
+              var box = '0px 0px 5px 0px ' + val;
+              $('.mm-button').css('box-shadow', box);
+              $('.mm-button').css('background-color', val);
+
+            });
+         </script>
+         <style>
+           .mm-button {
+               background: {{ megamessage_logo }};
+               width: 55px;
+               height: 55px;
+               border-radius: 50px;
+               box-shadow: 0px 0px 5px 0px {{ megamessage_logo }};
+               -o-transition: transform 3s linear;
+               -ms-transition: transform 3s linear;
+               -moz-transition: transform 3s linear;
+               -webkit-transition: transform 3s linear;
+               transition: transform 3s linear;
+               cursor: pointer;
+               animation: shadow 1s linear infinite alternate;
+           }
+           .mm-button-img {
+               background-image: url(/image/megamessage/message.svg);
+               height: 55px;
+               width: 55px;
+               background-size: 55%;
+               background-position: center center;
+               background-repeat: no-repeat;
+               -webkit-transition-duration: 1s;
+               -moz-transition-duration: 1s;
+               -o-transition-duration: 1s;
+               transition-duration: 1s;
+           }
+         </style>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ footer }}

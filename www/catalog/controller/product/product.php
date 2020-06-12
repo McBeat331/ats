@@ -232,14 +232,9 @@ class ControllerProductProduct extends Controller {
 
 			$this->load->model('catalog/review');
 
-			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
 			$data['product_id'] = (int)$this->request->get['product_id'];
-			$data['manufacturer'] = $product_info['manufacturer'];
-			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
 			$data['model'] = $product_info['model'];
-			$data['reward'] = $product_info['reward'];
-			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
 			if ($product_info['quantity'] <= 0) {
@@ -281,11 +276,6 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 
-			if ((float)$product_info['special']) {
-				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-			} else {
-				$data['special'] = false;
-			}
 
 			if ($this->config->get('config_tax')) {
 				$data['tax'] = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
@@ -359,8 +349,6 @@ class ControllerProductProduct extends Controller {
 				$data['customer_name'] = '';
 			}
 
-			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
-			$data['rating'] = (int)$product_info['rating'];
 
 			// Captcha
 			if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('review', (array)$this->config->get('config_captcha_page'))) {
@@ -403,11 +391,7 @@ class ControllerProductProduct extends Controller {
 					$price = false;
 				}
 
-				if ((float)$result['special']) {
-					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-				} else {
-					$special = false;
-				}
+
 
 				if ($this->config->get('config_tax')) {
 					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
@@ -415,11 +399,6 @@ class ControllerProductProduct extends Controller {
 					$tax = false;
 				}
 
-				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
-				} else {
-					$rating = false;
-				}
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
@@ -428,28 +407,13 @@ class ControllerProductProduct extends Controller {
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
-					'special'     => $special,
-					'percentsaving' 	 => round((($result['price'] - $result['special'])/$result['price'])*100, 0),
-					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 					'quick'        => $this->url->link('product/quick_view','&product_id=' . $result['product_id'])
 				);
 			}
 
-			$data['tags'] = array();
 
-			if ($product_info['tag']) {
-				$tags = explode(',', $product_info['tag']);
-
-				foreach ($tags as $tag) {
-					$data['tags'][] = array(
-						'tag'  => trim($tag),
-						'href' => $this->url->link('product/search', 'tag=' . trim($tag))
-					);
-				}
-			}
 
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 

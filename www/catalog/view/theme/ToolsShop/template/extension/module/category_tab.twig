@@ -49,17 +49,11 @@
 															<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive"/>
 														</a>
 													{% endif %}
-													
-													{% if not product.special %}        
-													{% else %}
-														<span class="saleicon sale">Sale</span>    
-													{% endif %}
+
 													
 													<div class="button-group">
 														<button class="wishlist" type="button" data-toggle="tooltip" title="{{ button_wishlist }} " onclick="wishlist.add('{{ product.product_id }} ');">
 															<i class="fa fa-heart"></i></button>
-														<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">
-															<i class="fa fa-eye" aria-hidden="true"></i></a></div>
 														<button class="compare" type="button" data-toggle="tooltip" title="{{ button_compare }} " onclick="compare.add('{{ product.product_id }} ');">
 															<i class="fa fa-exchange"></i></button>
 														<button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span></button>
@@ -85,15 +79,7 @@
 															</p>
 														{% endif %}
 														
-														<div class="rating">
-															 {% for i in 1..5 %}
-															 {% if product.rating < i %}
-															 <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-															 {% else %}
-															 <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-															 {% endif %}
-															 {% endfor %}
-														</div>
+
 														
 													</div>
 												 </div>

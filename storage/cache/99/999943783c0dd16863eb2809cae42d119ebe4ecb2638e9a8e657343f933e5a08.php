@@ -22,6 +22,7 @@ class __TwigTemplate_d9ae63348d8a5b7e9b11fa0f05ea283a959c38fb29a0fb475bad8226478
             // line 2
             echo $context["module"];
             echo "
+
 ";
         }
         $_parent = $context['_parent'];
@@ -46,4 +47,6 @@ class __TwigTemplate_d9ae63348d8a5b7e9b11fa0f05ea283a959c38fb29a0fb475bad8226478
 }
 /* {% for module in modules %}*/
 /* {{ module }}*/
+/* */
 /* {% endfor %}*/
+/* */

@@ -1,0 +1,14 @@
+2020-06-10 18:06:50 - 
+ERROR: FILE NOT FOUND!
+FILE: /home/amotion/new-store.com/www/catalog/controller/extension/module/product_tab.php
+MOD: Sticker
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/ToolsShop/template/product/product.twig
+CODE: <!-- AddThis Button BEGIN -->
+MOD: Заказ в один клик
+
+ERROR: CODE NOT FOUND!
+FILE: catalog/view/theme/default/template/product/product.twig
+CODE: <!-- AddThis Button BEGIN -->
+MOD: Заказ в один клик

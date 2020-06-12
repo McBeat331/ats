@@ -67,11 +67,7 @@ class ControllerProductCompare extends Controller {
 					$price = false;
 				}
 
-				if ((float)$product_info['special']) {
-					$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-				} else {
-					$special = false;
-				}
+
 
 				if ($product_info['quantity'] <= 0) {
 					$availability = $product_info['stock_status'];
@@ -96,18 +92,11 @@ class ControllerProductCompare extends Controller {
 					'name'         => $product_info['name'],
 					'thumb'        => $image,
 					'price'        => $price,
-					'special'      => $special,
 					'description'  => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',
 					'model'        => $product_info['model'],
-					'manufacturer' => $product_info['manufacturer'],
 					'availability' => $availability,
 					'minimum'      => $product_info['minimum'] > 0 ? $product_info['minimum'] : 1,
-					'rating'       => (int)$product_info['rating'],
-					'reviews'      => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
 					'weight'       => $this->weight->format($product_info['weight'], $product_info['weight_class_id']),
-					'length'       => $this->length->format($product_info['length'], $product_info['length_class_id']),
-					'width'        => $this->length->format($product_info['width'], $product_info['length_class_id']),
-					'height'       => $this->length->format($product_info['height'], $product_info['length_class_id']),
 					'attribute'    => $attribute_data,
 					'href'         => $this->url->link('product/product', 'product_id=' . $product_id),
 					'remove'       => $this->url->link('product/compare', 'remove=' . $product_id)

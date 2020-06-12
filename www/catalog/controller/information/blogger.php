@@ -307,8 +307,7 @@ class ControllerInformationBlogger extends Controller {
 						'title'       => $module_blog['title'],
 						'image' 	  => $this->model_tool_image->resize($module_blog['image'], $setting['width'], $setting['height']),
 						'description' => utf8_substr(strip_tags(html_entity_decode($module_blog['description'], ENT_QUOTES, 'UTF-8')), 0, 320) . '...',
-						'date_added'  => date('j F, Y', strtotime($module_blog['date_added'])),
-						//'date_added'  => date($this->language->get('date_format_short'), strtotime($module_blog['date_added'])),
+						'date_added'  => date($this->language->get('date_format_short'), strtotime($module_blog['date_added'])),
 						'total_comments' => number_format($total_comments),
 						'href'        => $this->url->link('information/blogger', 'blogger_id=' . $module_blog['blogger_id'], true)
 					);
@@ -327,7 +326,7 @@ class ControllerInformationBlogger extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-		
+
 		$this->response->setOutput($this->load->view('information/blogger_blogs', $data)); 
 	}
 }

@@ -13,7 +13,8 @@ class ControllerCommonHeader extends Controller {
 				$data['analytics'][] = $this->load->controller('extension/analytics/' . $analytic['code'], $this->config->get('analytics_' . $analytic['code'] . '_status'));
 			}
 		}
-
+        $this->document->addScript('catalog/view/javascript/jquery.maskedinput.min.js');
+        $formcreator = new formcreator($this->registry); $data['formcreator_id51'] = $formcreator->initFeedback(51);
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
 		} else {

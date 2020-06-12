@@ -51,9 +51,7 @@ class __TwigTemplate_541d4a8312f57d741ad40133e19b61422800605a9795c6bfc2ef7947622
             echo "    ";
         }
         // line 14
-        echo "    <div id=\"content\" class=\"";
-        echo (isset($context["class"]) ? $context["class"] : null);
-        echo "\">
+        echo "    <div id=\"content\" class=\"container\">
 \t\t";
         // line 15
         echo (isset($context["content_bottom"]) ? $context["content_bottom"] : null);
@@ -117,7 +115,7 @@ class __TwigTemplate_541d4a8312f57d741ad40133e19b61422800605a9795c6bfc2ef7947622
 
     public function getDebugInfo()
     {
-        return array (  71 => 21,  64 => 17,  59 => 15,  54 => 14,  51 => 13,  48 => 12,  45 => 11,  42 => 10,  39 => 9,  36 => 8,  34 => 7,  30 => 6,  24 => 3,  19 => 1,);
+        return array (  69 => 21,  62 => 17,  57 => 15,  54 => 14,  51 => 13,  48 => 12,  45 => 11,  42 => 10,  39 => 9,  36 => 8,  34 => 7,  30 => 6,  24 => 3,  19 => 1,);
     }
 }
 /* {{ header }}*/
@@ -133,7 +131,7 @@ class __TwigTemplate_541d4a8312f57d741ad40133e19b61422800605a9795c6bfc2ef7947622
 /*     {% else %}*/
 /*     {% set class = 'col-sm-12' %}*/
 /*     {% endif %}*/
-/*     <div id="content" class="{{ class }}">*/
+/*     <div id="content" class="container">*/
 /* 		{{ content_bottom }}*/
 /* 	</div>*/
 /*     {{ column_right }}*/

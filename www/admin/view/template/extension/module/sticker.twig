@@ -1,0 +1,1239 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+	    <button type="button" data-toggle="tooltip" title="{{ text_version }} {{ version }}" class="btn btn-default">{{ version }}</button>
+	    <button onclick="$('#content #apply').attr('value', '1'); $('#' + $('#content form').attr('id')).submit();" data-toggle="tooltip" title="{{ button_apply }}" class="btn btn-success"><i class="fa fa-save"></i></button>
+        <button type="submit" form="form-sticker" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+	  {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+	{% if success %}
+    <div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-sticker" class="form-horizontal">
+		  <input type="hidden" name="module_sticker_apply" id="apply" value="0" />
+		  <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-setting" data-toggle="tab">{{ tab_setting }}</a></li>
+			<li><a href="#tab-product" data-toggle="tab">{{ tab_product }}</a></li>
+            <li><a href="#tab-contact" data-toggle="tab">{{ tab_contact }}</a></li>
+          </ul>
+		  <div class="tab-content">
+			<div class="tab-pane active" id="tab-setting">
+			  <div class="row">
+			    <div class="col-sm-2">
+				  <ul class="nav nav-pills nav-stacked">
+				    <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+			        <li><a href="#tab-new" data-toggle="tab">{{ tab_new }}</a></li>
+				    <li><a href="#tab-bestseller" data-toggle="tab">{{ tab_bestseller }}</a></li>
+				    <li><a href="#tab-special" data-toggle="tab">{{ tab_special }}</a></li>
+					<li><a href="#tab-discount" data-toggle="tab">{{ tab_discount }}</a></li>
+				    <li><a href="#tab-stock" data-toggle="tab">{{ tab_stock }}</a></li>
+					<li><a href="#tab-price" data-toggle="tab">{{ tab_price }}</a></li>
+					<li><a href="#tab-custom" data-toggle="tab">{{ tab_custom }}</a></li>
+				  </ul>
+			    </div>
+			    <div class="col-sm-10">
+			      <div class="tab-content">
+				    <div class="tab-pane active" id="tab-general">
+					  <div class="form-group">
+						<label class="col-sm-3 control-label" for="input-status">{{ entry_status }}</label>
+						<div class="col-sm-9">
+						  <select name="module_sticker_status" id="input-status" class="form-control">
+							{% if module_sticker_status %}
+							<option value="1" selected="selected">{{ text_enabled }}</option>
+							<option value="0">{{ text_disabled }}</option>
+							{% else %}
+							<option value="1">{{ text_enabled }}</option>
+							<option value="0" selected="selected">{{ text_disabled }}</option>
+							{% endif %}
+						  </select>
+						</div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-catalog-left-x">{{ entry_offset_catalog_left_x }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[catalog][x][left]" value="{{ module_sticker_offset['catalog']['x']['left'] }}" placeholder="{{ entry_offset_catalog_left_x }}" id="input-offset-catalog-left-x" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-catalog-right-x">{{ entry_offset_catalog_right_x }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[catalog][x][right]" value="{{ module_sticker_offset['catalog']['x']['right'] }}" placeholder="{{ entry_offset_catalog_right_x }}" id="input-offset-catalog-right-x" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-product-left-x">{{ entry_offset_product_left_x }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[product][x][left]" value="{{ module_sticker_offset['product']['x']['left'] }}" placeholder="{{ entry_offset_product_left_x }}" id="input-offset-product-left-x" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-product-right-x">{{ entry_offset_product_right_x }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[product][x][right]" value="{{ module_sticker_offset['product']['x']['right'] }}" placeholder="{{ entry_offset_product_right_x }}" id="input-offset-product-right-x" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-catalog-y">{{ entry_offset_catalog_y }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[catalog][y]" value="{{ module_sticker_offset['catalog']['y'] }}" placeholder="{{ entry_offset_catalog_y }}" id="input-offset-catalog-y" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-offset-product-y">{{ entry_offset_product_y }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_offset[product][y]" value="{{ module_sticker_offset['product']['y'] }}" placeholder="{{ entry_offset_product_y }}" id="input-offset-product-y" class="form-control" />
+					    </div>
+					  </div>
+					</div>
+					<div class="tab-pane" id="tab-new">
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-status">{{ entry_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_new[status]" id="input-new-status" class="form-control">
+						    {% if module_sticker_new.status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-date-new">{{ entry_date_new }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_new[date_new]" id="input-date-new" class="form-control">
+						    {% if module_sticker_new.date_new %}
+						    <option value="1" selected="selected">{{ text_date_added }}</option>
+						    <option value="0">{{ text_date_available }}</option>
+						    {% else %}
+						    <option value="1">{{ text_date_added }}</option>
+						    <option value="0" selected="selected">{{ text_date_available }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-day">{{ entry_day }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_new[day]" value="{{ module_sticker_new.day }}" placeholder="{{ entry_day }}" id="input-new-day" class="form-control" />
+					    </div>
+					  </div>
+				      <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-new-type">{{ entry_type }}</label>
+                        <div class="col-sm-9">
+                          <select name="module_sticker_new[type]" class="form-control" id="input-new-type">
+						    {% for i, type in module_sticker_types %}
+							{% if module_sticker_new.type == i %}
+							<option value="{{ i }}" selected="selected">{{ type }}</option>
+							{% else %}
+							<option value="{{ i }}">{{ type }}</option>
+							{% endif %}
+							{% endfor %}
+				          </select>
+                        </div>
+                      </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-position">{{ entry_position }}  </label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_new[position]" class="form-control" id="input-new-position">
+						    {% if module_sticker_new.position == 'left' %}
+						    <option value="left" selected="selected">{{ text_left }}</option>
+						    <option value="right">{{ text_right }}</option>
+						    {% else %}
+						    <option value="left">{{ text_left }}</option>
+						    <option value="right" selected="selected">{{ text_right }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-name-status">{{ entry_name_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_new[name_status]" id="input-new-name-status" class="form-control">
+						    {% if module_sticker_new.name_status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-name">{{ entry_name }}</label>
+					    <div class="col-sm-9">
+						  {% for language in languages %}
+						 <div class="input-group">
+						    <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+						    <input type="text" name="module_sticker_new[{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ module_sticker_new[language.language_id]['name'] }}" />
+						  </div>
+						  {% endfor %}
+					    </div>
+					  </div>			  
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-new-sort-order">{{ entry_sort_order }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_new[sort_order]" value="{{ module_sticker_new.sort_order }}" placeholder="{{ entry_sort_order }}" id="input-new-sort-order" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-sm-3 control-label">{{ entry_image }}</label>
+						<div class="col-sm-9">
+						  <a href="" id="thumb-image-new" data-toggle="image" class="img-thumbnail"><img src="{% if module_sticker_new.image %}/image/{{ module_sticker_new.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_new[image]" value="{{ module_sticker_new.image }}" id="input-image-new" />
+					    </div>
+				      </div>
+                    </div>
+				    <div class="tab-pane" id="tab-bestseller">
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-status">{{ entry_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_bestseller[status]" id="input-bestseller-status" class="form-control">
+						    {% if module_sticker_bestseller.status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-sale">{{ entry_sale }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_bestseller[sale]" value="{{ module_sticker_bestseller.sale }}" placeholder="{{ entry_sale }}" id="input-bestseller-sale" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-bestseller-type">{{ entry_type }}</label>
+                        <div class="col-sm-9">
+                          <select name="module_sticker_bestseller[type]" class="form-control" id="input-bestseller-type">
+						    {% for i, type in module_sticker_types %}
+							{% if module_sticker_bestseller.type == i %}
+							<option value="{{ i }}" selected="selected">{{ type }}</option>
+							{% else %}
+							<option value="{{ i }}">{{ type }}</option>
+							{% endif %}
+							{% endfor %}
+				          </select>
+                        </div>
+                      </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-position">{{ entry_position }}  </label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_bestseller[position]" class="form-control" id="input-bestseller-position">
+						    {% if module_sticker_bestseller.position == 'left' %}
+						    <option value="left" selected="selected">{{ text_left }}</option>
+						    <option value="right">{{ text_right }}</option>
+						    {% else %}
+						    <option value="left">{{ text_left }}</option>
+						    <option value="right" selected="selected">{{ text_right }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-name-status">{{ entry_name_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_bestseller[name_status]" id="input-bestseller-name-status" class="form-control">
+						    {% if module_sticker_bestseller.name_status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-name">{{ entry_name }}</label>
+					    <div class="col-sm-9">
+						  {% for language in languages %}
+						  <div class="input-group">
+						    <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+						    <input type="text" name="module_sticker_bestseller[{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ module_sticker_bestseller[language.language_id]['name'] }}" />
+						  </div>
+						  {% endfor %}
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-bestseller-sort-order">{{ entry_sort_order }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_bestseller[sort_order]" value="{{ module_sticker_bestseller.sort_order }}" placeholder="{{ entry_sort_order }}" id="input-bestseller-sort-order" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-sm-3 control-label">{{ entry_image }}</label>
+						<div class="col-sm-9">
+						  <a href="" id="thumb-image-bestseller" data-toggle="image" class="img-thumbnail"><img src="{% if module_sticker_bestseller.image %}/image/{{ module_sticker_bestseller.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_bestseller[image]" value="{{ module_sticker_bestseller.image }}" id="input-image-bestseller" />
+					    </div>
+				      </div>
+				    </div>
+					<div class="tab-pane" id="tab-discount">
+					  <div class="form-group">
+					  <label class="col-sm-3 control-label" for="input-discount-status">{{ entry_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_discount[status]" id="input-discount-status" class="form-control">
+						    {% if module_sticker_discount.status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-label">{{ entry_label }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_discount[label]" class="form-control" id="input-discount-label">
+						    {% if module_sticker_discount.label %}
+						    <option value="1" selected="selected">{{ text_label_discount_percent }}</option>
+						    <option value="0">{{ text_label_discount_price }}</option>
+						    {% else %}
+						    <option value="1">{{ text_label_discount_percent }}</option>
+						    <option value="0" selected="selected">{{ text_label_discount_price }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-discount-type">{{ entry_type }}</label>
+                        <div class="col-sm-9">
+                          <select name="module_sticker_discount[type]" class="form-control" id="input-discount-type">
+						    {% for i, type in module_sticker_types %}
+							{% if module_sticker_discount.type == i %}
+							<option value="{{ i }}" selected="selected">{{ type }}</option>
+							{% else %}
+							<option value="{{ i }}">{{ type }}</option>
+							{% endif %}
+							{% endfor %}
+				          </select>
+                        </div>
+                      </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-position">{{ entry_position }}  </label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_discount[position]" class="form-control" id="input-discount-position">
+						    {% if module_sticker_discount.position == 'left' %}
+						    <option value="left" selected="selected">{{ text_left }}</option>
+						    <option value="right">{{ text_right }}</option>
+						    {% else %}
+						    <option value="left">{{ text_left }}</option>
+						    <option value="right" selected="selected">{{ text_right }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-quantity">{{ entry_discount_quantity }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_discount[quantity]" id="input-discount-quantity" class="form-control">
+						    {% if module_sticker_discount.quantity %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-name-status">{{ entry_name_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_discount[name_status]" id="input-discount-name-status" class="form-control">
+						    {% if module_sticker_discount.name_status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-name">{{ entry_name }}</label>
+					    <div class="col-sm-9">
+						  {% for language in languages %}
+						  <div class="input-group">
+						    <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+						    <input type="text" name="module_sticker_discount[{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ module_sticker_discount[language.language_id]['name'] }}" />
+						  </div>
+						  {% endfor %}
+					    </div>
+					  </div>
+					 <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ text_warning }}</div>	
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-discount-sort-order">{{ entry_sort_order }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_discount[sort_order]" value="{{ module_sticker_discount.sort_order }}" placeholder="{{ entry_sort_order }}" id="input-discount-sort-order" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-sm-3 control-label">{{ entry_image }}</label>
+						<div class="col-sm-9">
+						  <a href="" id="thumb-image-discount" data-toggle="image" class="img-thumbnail"><img src="{% if module_sticker_discount.image %}/image/{{ module_sticker_discount.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_discount[image]" value="{{ module_sticker_discount.image }}" id="input-image-discount" />
+					    </div>
+				      </div>
+				    </div>
+				    <div class="tab-pane" id="tab-special">
+					  <div class="form-group">
+					  <label class="col-sm-3 control-label" for="input-special-status">{{ entry_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_special[status]" id="input-special-status" class="form-control">
+						    {% if module_sticker_special.status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-special-label">{{ entry_label }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_special[label]" class="form-control" id="input-special-label">
+						    {% if module_sticker_special.label == 2 %}
+						    <option value="2" selected="selected">{{ text_label_text_percent }}</option>
+						    <option value="1">{{ text_label_percent }}</option>
+						    <option value="0">{{ text_label_text }}</option>
+						    {% elseif module_sticker_special.label == 1 %}
+						    <option value="2">{{ text_label_text_percent }}</option>
+						    <option value="1" selected="selected">{{ text_label_percent }}</option>
+						    <option value="0">{{ text_label_text }}</option>
+						    {% else %}
+						    <option value="2">{{ text_label_text_percent }}</option>
+						    <option value="1">{{ text_label_percent }}</option>
+						    <option value="0" selected="selected">{{ text_label_text }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-special-type">{{ entry_type }}</label>
+                        <div class="col-sm-9">
+                          <select name="module_sticker_special[type]" class="form-control" id="input-special-type">
+						    {% for i, type in module_sticker_types %}
+							{% if module_sticker_special.type == i %}
+							<option value="{{ i }}" selected="selected">{{ type }}</option>
+							{% else %}
+							<option value="{{ i }}">{{ type }}</option>
+							{% endif %}
+							{% endfor %}
+				          </select>
+                        </div>
+                      </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-special-position">{{ entry_position }}  </label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_special[position]" class="form-control" id="input-special-position">
+						    {% if module_sticker_special.position == 'left' %}
+						    <option value="left" selected="selected">{{ text_left }}</option>
+						    <option value="right">{{ text_right }}</option>
+						    {% else %}
+						    <option value="left">{{ text_left }}</option>
+						    <option value="right" selected="selected">{{ text_right }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-special-name-status">{{ entry_name_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_special[name_status]" id="input-special-name-status" class="form-control">
+						    {% if module_sticker_special.name_status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-special-name">{{ entry_name }}</label>
+					    <div class="col-sm-9">
+						  {% for language in languages %}
+						  <div class="input-group">
+						    <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+						    <input type="text" name="module_sticker_special[{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ module_sticker_special[language.language_id]['name'] }}" />
+						  </div>
+						  {% endfor %}
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-special-sort-order">{{ entry_sort_order }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_special[sort_order]" value="{{ module_sticker_special.sort_order }}" placeholder="{{ entry_sort_order }}" id="input-special-sort-order" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-sm-3 control-label">{{ entry_image }}</label>
+						<div class="col-sm-9">
+						  <a href="" id="thumb-image-special" data-toggle="image" class="img-thumbnail"><img src="{% if module_sticker_special.image %}/image/{{ module_sticker_special.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_special[image]" value="{{ module_sticker_special.image }}" id="input-image-special" />
+					    </div>
+				      </div>
+				    </div>
+				    <div class="tab-pane" id="tab-stock">
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-stock-status">{{ entry_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_stock[status]" id="input-stock-status" class="form-control">
+						    {% if module_sticker_stock.status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-stock-type">{{ entry_type }}</label>
+                        <div class="col-sm-9">
+                          <select name="module_sticker_stock[type]" class="form-control" id="input-stock-type">
+						    {% for i, type in module_sticker_types %}
+							{% if module_sticker_stock.type == i %}
+							<option value="{{ i }}" selected="selected">{{ type }}</option>
+							{% else %}
+							<option value="{{ i }}">{{ type }}</option>
+							{% endif %}
+							{% endfor %}
+				          </select>
+                        </div>
+                      </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-stock-position">{{ entry_position }}  </label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_stock[position]" class="form-control" id="input-stock-position">
+						    {% if module_sticker_stock.position == 'left' %}
+						    <option value="left" selected="selected">{{ text_left }}</option>
+						    <option value="right">{{ text_right }}</option>
+						    {% else %}
+						    <option value="left">{{ text_left }}</option>
+						    <option value="right" selected="selected">{{ text_right }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-stock-name-status">{{ entry_name_status }}</label>
+					    <div class="col-sm-9">
+						  <select name="module_sticker_stock[name_status]" id="input-stock-name-status" class="form-control">
+						    {% if module_sticker_stock.name_status %}
+						    <option value="1" selected="selected">{{ text_enabled }}</option>
+						    <option value="0">{{ text_disabled }}</option>
+						    {% else %}
+						    <option value="1">{{ text_enabled }}</option>
+						    <option value="0" selected="selected">{{ text_disabled }}</option>
+						    {% endif %}
+						  </select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label" for="input-stock-sort-order">{{ entry_sort_order }}</label>
+					    <div class="col-sm-9">
+						  <input type="text" name="module_sticker_stock[sort_order]" value="{{ module_sticker_stock.sort_order }}" placeholder="{{ entry_sort_order }}" id="input-stock-sort-order" class="form-control" />
+					    </div>
+					  </div>
+					  <div class="form-group">
+						<label class="col-sm-3 control-label">{{ entry_image }}</label>
+						<div class="col-sm-9">
+						  <a href="" id="thumb-image-stock" data-toggle="image" class="img-thumbnail"><img src="{% if module_sticker_stock.image %}/image/{{ module_sticker_stock.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_stock[image]" value="{{ module_sticker_stock.image }}" id="input-image-stock" />
+					    </div>
+				      </div>
+				    </div>
+					<div class="tab-pane" id="tab-price">
+					  <div style="border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px;"><button type="button" onclick="addStickerPrice();" class="btn btn-primary"><i class="fa fa-plus-circle"></i> {{ button_add }}</button></div>
+					  <div id="sticker-price">
+						{% set last_key_price = 0 %}
+						{% for key, sticker in module_sticker_price %}
+						<div id="sticker-price-row{{ key }}">
+						  <div class="text-right"><button type="button" onclick="$('#sticker-price-row{{ key }}').remove();" class="btn btn-danger"><i class="fa fa-minus-circle"></i> {{ button_remove }}</button></div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-price-status{{ key }}">{{ entry_status }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_price[{{ key }}][status]" id="input-price-status{{ key }}" class="form-control">
+								{% if sticker.status %}
+								<option value="1" selected="selected">{{ text_enabled }}</option>
+								<option value="0">{{ text_disabled }}</option>
+								{% else %}
+								<option value="1">{{ text_enabled }}</option>
+								<option value="0" selected="selected">{{ text_disabled }}</option>
+								{% endif %}
+						      </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_price }}</label>
+						    <div class="col-sm-9">
+						      <input type="text" name="module_sticker_price[{{ key }}][min]" value="{{ sticker.min }}" placeholder="{{ entry_min }}" class="form-control" />
+							  <input type="text" name="module_sticker_price[{{ key }}][max]" value="{{ sticker.max }}" placeholder="{{ entry_max }}" class="form-control" />
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_date }}</label>
+						    <div class="col-sm-9">
+						      <div class="input-group date">
+								<input type="text" name="module_sticker_price[{{ key }}][date_start]" value="{{ sticker.date_start }}" placeholder="{{ entry_date_start }}" class="form-control" data-date-format="YYYY-MM-DD" />
+								<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>
+							  </div>
+							  <div class="input-group date">
+								<input type="text" name="module_sticker_price[{{ key }}][date_end]" value="{{ sticker.date_end }}" placeholder="{{ entry_date_end }}" class="form-control" data-date-format="YYYY-MM-DD" />
+								<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>
+							  </div>
+					        </div>
+						  </div>
+						  <div class="form-group">
+                            <label class="col-sm-3 control-label" for="input-price-type{{ key }}">{{ entry_type }}</label>
+                            <div class="col-sm-9">
+                              <select name="module_sticker_price[{{ key }}][type]" class="form-control" id="input-price-type{{ key }}">
+						        {% for i, type in module_sticker_types %}
+							    {% if sticker.type == i %}
+							    <option value="{{ i }}" selected="selected">{{ type }}</option>
+							    {% else %}
+							    <option value="{{ i }}">{{ type }}</option>
+							    {% endif %}
+							    {% endfor %}
+				              </select>
+                            </div>
+                          </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-price-position{{ key }}">{{ entry_position }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_price[{{ key }}][position]" id="input-price-position{{ key }}" class="form-control">
+								{% if sticker.position == 'left' %}
+								<option value="left" selected="selected">{{ text_left }}</option>
+								<option value="right">{{ text_right }}</option>
+								{% else %}
+								<option value="left">{{ text_left }}</option>
+								<option value="right" selected="selected">{{ text_right }}</option>
+								{% endif %}
+							  </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-price-name-status{{ key }}">{{ entry_name_status }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_price[{{ key }}][name_status]" id="input-price-name-status{{ key }}" class="form-control">
+								{% if sticker.name_status %}
+								<option value="1" selected="selected">{{ text_enabled }}</option>
+								<option value="0">{{ text_disabled }}</option>
+								{% else %}
+								<option value="1">{{ text_enabled }}</option>
+								<option value="0" selected="selected">{{ text_disabled }}</option>
+								{% endif %}
+							  </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_name }}</label>
+						    <div class="col-sm-9">
+						      {% for language in languages %}
+							  <div class="input-group">
+								<span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+								<input type="text" name="module_sticker_price[{{ key }}][{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ sticker[language.language_id]['name'] }}" />
+							  </div>
+							  {% endfor %}
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-price-sort-order{{ key }}">{{ entry_sort_order }}</label>
+						    <div class="col-sm-9">
+						      <input type="text" name="module_sticker_price[{{ key }}][sort_order]" value="{{ sticker.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control" />
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_image }}</label>
+						    <div class="col-sm-9">
+						      <a href="" id="thumb-image-price{{ key }}" data-toggle="image" class="img-thumbnail"><img class="stickers" style="width: 100px;" src="{% if sticker.image %}/image/{{ sticker.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_price[{{ key }}][image]" value="{{ sticker.image }}" class="input-stickers" id="input-image-price{{ key }}" />
+					        </div>
+						  </div>
+						</div>
+						{% set last_key_price = key + 1 %}
+					    {% endfor %}
+					  </div>
+					</div>
+					<div class="tab-pane" id="tab-custom">
+					  <div style="border-bottom: 1px solid #ccc; margin-bottom: 10px; padding-bottom: 10px;"><button type="button" onclick="addStickerCustom();" class="btn btn-primary"><i class="fa fa-plus-circle"></i> {{ button_add }}</button></div>
+					  <div id="sticker-custom">
+						{% set last_key_custom = 0 %}
+						{% for key, sticker in module_sticker_custom %}
+					    <div id="sticker-custom-row{{ key }}">
+					      <div class="text-right"><button type="button" onclick="$('#sticker-custom-row{{ key }}').remove();" class="btn btn-danger"><i class="fa fa-minus-circle"></i> {{ button_remove }}</button></div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-custom-status{{ key }}">{{ entry_status }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_custom[{{ key }}][status]" id="input-custom-status{{ key }}" class="form-control">
+						        {% if sticker.status %}
+							    <option value="1" selected="selected">{{ text_enabled }}</option>
+							    <option value="0">{{ text_disabled }}</option>
+							    {% else %}
+							    <option value="1">{{ text_enabled }}</option>
+							    <option value="0" selected="selected">{{ text_disabled }}</option>
+							    {% endif %}
+						      </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_date }}</label>
+						    <div class="col-sm-9">
+						      <div class="input-group date">
+						        <input type="text" name="module_sticker_custom[{{ key }}][date_start]" value="{{ sticker.date_start }}" placeholder="{{ entry_date_start }}" class="form-control" data-date-format="YYYY-MM-DD" />
+							    <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>
+							  </div>
+							  <div class="input-group date">
+							    <input type="text" name="module_sticker_custom[{{ key }}][date_end]" value="{{ sticker.date_end }}" placeholder="{{ entry_date_end }}" class="form-control" data-date-format="YYYY-MM-DD" />
+							    <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>
+							  </div>
+					        </div>
+						  </div>
+						  <div class="form-group">
+                            <label class="col-sm-3 control-label" for="input-custom-type{{ key }}">{{ entry_type }}</label>
+                            <div class="col-sm-9">
+                              <select name="module_sticker_custom[{{ key }}][type]" class="form-control" id="input-custom-type{{ key }}">
+						        {% for i, type in module_sticker_types %}
+							    {% if sticker.type == i %}
+							    <option value="{{ i }}" selected="selected">{{ type }}</option>
+							    {% else %}
+							    <option value="{{ i }}">{{ type }}</option>
+							    {% endif %}
+							    {% endfor %}
+				              </select>
+                            </div>
+                          </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-custom-position{{ key }}">{{ entry_position }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_custom[{{ key }}][position]" id="input-custom-position{{ key }}" class="form-control">
+							    {% if sticker.position == 'left' %}
+							    <option value="left" selected="selected">{{ text_left }}</option>
+							    <option value="right">{{ text_right }}</option>
+							    {% else %}
+							    <option value="left">{{ text_left }}</option>
+							    <option value="right" selected="selected">{{ text_right }}</option>
+							    {% endif %}
+							  </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-custom-name-status{{ key }}">{{ entry_name_status }}</label>
+						    <div class="col-sm-9">
+						      <select name="module_sticker_custom[{{ key }}][name_status]" id="input-custom-name-status{{ key }}" class="form-control">
+							    {% if sticker.name_status %}
+							    <option value="1" selected="selected">{{ text_enabled }}</option>
+							    <option value="0">{{ text_disabled }}</option>
+							    {% else %}
+							    <option value="1">{{ text_enabled }}</option>
+							    <option value="0" selected="selected">{{ text_disabled }}</option>
+							    {% endif %}
+							  </select>
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_name }}</label>
+						    <div class="col-sm-9">
+						      {% for language in languages %}
+							  <div class="input-group">
+							    <span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+							    <input type="text" name="module_sticker_custom[{{ key }}][{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="{{ sticker[language.language_id]['name'] }}" />
+							  </div>
+							  {% endfor %}
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label" for="input-custom-sort-order{{ key }}">{{ entry_sort_order }}</label>
+						    <div class="col-sm-9">
+						      <input type="text" name="module_sticker_custom[{{ key }}][sort_order]" value="{{ sticker.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control" />
+					        </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-3 control-label">{{ entry_image }}</label>
+						    <div class="col-sm-9">
+						      <a href="" id="thumb-image-custom{{ key }}" data-toggle="image" class="img-thumbnail"><img class="stickers" style="width: 100px;" src="{% if sticker.image %}/image/{{ sticker.image }}{% else %}{{ placeholder }}{% endif %}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_custom[{{ key }}][image]" value="{{ sticker.image }}" class="input-stickers" id="input-image-custom{{ key }}" />
+					        </div>
+						  </div>
+				        </div>
+					    {% set last_key_custom = key + 1 %}
+					    {% endfor %}
+					  </div>
+					</div>
+				  </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="tab-pane" id="tab-product">
+			  {% if not module_sticker_custom_list %}
+			  <div class="alert alert-info"><i class="fa fa-exclamation-circle"></i> {{ text_no_sticker }}</div>
+			  {% endif %}
+			  <div class="well">
+			    <div class="row">
+				  <div class="col-sm-4">
+				    <div class="form-group">
+					  <label class="control-label" for="input-name">{{ entry_name }}</label>
+					  <input type="text" name="filter_name" value="{{ filter_name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+				    </div>
+				    <div class="form-group">
+					  <label class="control-label" for="input-model">{{ entry_model }}</label>
+					  <input type="text" name="filter_model" value="{{ filter_model }}" placeholder="{{ entry_model }}" id="input-model" class="form-control" />
+				    </div>
+				  </div>
+				  <div class="col-sm-4">
+				    <div class="form-group">
+					  <label class="control-label" for="input-price">{{ entry_price }}</label>
+					  <input type="text" name="filter_price" value="{{ filter_price }}" placeholder="{{ entry_price }}" id="input-price" class="form-control" />
+				    </div>
+				    <div class="form-group">
+					  <label class="control-label" for="input-quantity">{{ entry_quantity }}</label>
+					  <input type="text" name="filter_quantity" value="{{ filter_quantity }}" placeholder="{{ entry_quantity }}" id="input-quantity" class="form-control" />
+				    </div>
+				  </div>
+				  <div class="col-sm-4">
+				    <div class="form-group">
+					  <label class="control-label" for="input-status">{{ entry_status }}</label>
+					  <select name="filter_status" id="input-status" class="form-control">
+					    <option value="*"></option>
+					    {% if filter_status == '1' %}
+					    <option value="1" selected="selected">{{ text_enabled }}</option>
+					    {% else %}
+					    <option value="1">{{ text_enabled }}</option>
+					    {% endif %}
+					    {% if filter_status == '0' %}
+					    <option value="0" selected="selected">{{ text_disabled }}</option>
+					    {% else %}
+					    <option value="0">{{ text_disabled }}</option>
+					    {% endif %}
+				  	</select>
+				    </div>
+				    <div class="form-group">
+				  	<label class="control-label" for="input-image">{{ entry_image }}</label>
+					  <select name="filter_image" id="input-image" class="form-control">
+					    <option value="*"></option>
+					    {% if filter_image == '1' %}
+					    <option value="1" selected="selected">{{ text_enabled }}</option>
+					    {% else %}
+					    <option value="1">{{ text_enabled }}</option>
+					    {% endif %}
+					    {% if filter_image == '0' %}
+					    <option value="0" selected="selected">{{ text_disabled }}</option>
+					    {% else %}
+					    <option value="0">{{ text_disabled }}</option>
+					    {% endif %}
+					  </select>
+				    </div>
+				    <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> {{ button_filter }}</button>
+				  </div>
+			    </div>
+			  </div>
+			  <div class="table-responsive">
+				<table class="table table-bordered table-hover">
+				  <thead>
+					<tr>
+                    <td class="text-center">{{ column_image }}</td>
+                    <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.model' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_model }}</a> {% else %} <a href="{{ sort_model }}">{{ column_model }}</a> {% endif %}</td>
+                    <td class="text-right">{% if sort == 'p.price' %} <a href="{{ sort_price }}" class="{{ order|lower }}">{{ column_price }}</a> {% else %} <a href="{{ sort_price }}">{{ column_price }}</a> {% endif %}</td>
+                    <td class="text-right">{% if sort == 'p.quantity' %} <a href="{{ sort_quantity }}" class="{{ order|lower }}">{{ column_quantity }}</a> {% else %} <a href="{{ sort_quantity }}">{{ column_quantity }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td>
+					<td class="text-left">{{ column_sticker }}</td>
+                    <td class="text-right">{{ column_action }}</td>
+                  </tr>
+				  </thead>
+				  <tbody>
+					{% if products %}
+				    {% for product in products %}
+					<tr id="product{{ product.product_id }}">
+					  <td class="text-center">{% if product.image %}
+						<img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" />
+						{% else %}
+						<span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span>
+						{% endif %}</td>
+					  <td class="text-left">{{ product.name }}</td>
+					  <td class="text-left">{{ product.model }}</td>
+					  <td class="text-right">{% if product.special %}
+						<span style="text-decoration: line-through;">{{ product.price }}</span><br/>
+						<div class="text-danger">{{ product.special }}</div>
+						{% else %}
+						{{ product.price }}
+						{% endif %}</td>
+					  <td class="text-right">{% if product.quantity <= 0 %}
+						<span class="label label-warning">{{ product.quantity }}</span>
+						{% elseif product.quantity <= 5 %}
+						<span class="label label-danger">{{ product.quantity }}</span>
+						{% else %}
+						<span class="label label-success">{{ product.quantity }}</span>
+						{% endif %}</td>
+					  <td class="text-left">{{ product.status }}</td>
+					  <td class="text-left">
+						{% if module_sticker_custom_list %}
+						{% for key, custom in module_sticker_custom_list %}
+						{% if custom.status %}
+						<div class="form-group">
+						  <label class="control-label">{{ custom[language_id]['name'] }}</label>
+						  <select onchange="saveProductStickerCustom({{ product.product_id }});" name="product_sticker_custom[{{ key }}][status]" class="form-control">
+							{% if (product['sticker_custom'][key]['status'] is defined) and (product['sticker_custom'][key]['status']) %}
+							<option value="1" selected="selected">{{ text_enabled }}</option>
+							<option value="0">{{ text_disabled }}</option>
+							{% else %}
+							<option value="1">{{ text_enabled }}</option>
+							<option value="0" selected="selected">{{ text_disabled }}</option>
+							{% endif %}
+						  </select>
+						</div>
+						{% endif %}
+						{% endfor %}
+						{% endif %}
+					  </td>
+					  <td class="text-right">
+						<a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+					  </td>
+					</tr>
+					{% endfor %}
+					{% else %}
+					<tr>
+					  <td class="text-center" colspan="8">{{ text_no_results }}</td>
+					</tr>
+					{% endif %}
+				  </tbody>
+				</table>
+			  </div>
+			  <div class="row">
+			    <div class="col-sm-6 text-left">{{ pagination }}</div>
+			    <div class="col-sm-6 text-right">{{ results }}</div>
+			  </div>
+			</div>
+			<div class="tab-pane" id="tab-contact">
+			  <div>{{ text_contact }}</div>
+			</div>
+		  </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+function saveProductStickerCustom(product_id) {
+	$.ajax({
+		url: 'index.php?route=extension/module/sticker/save&user_token={{ user_token }}&product_id=' + product_id,
+		dataType: 'json',
+		type: 'post',
+		data: $('#product' + product_id + ' select'),
+		success: function(json) {
+			// console.log('success');
+		}
+	});
+}
+$('#button-filter').on('click', function() {
+	var url = 'index.php?route=extension/module/sticker&user_token={{ user_token }}';
+
+	var filter_name = $('input[name=\'filter_name\']').val();
+
+	if (filter_name) {
+		url += '&filter_name=' + encodeURIComponent(filter_name);
+	}
+
+	var filter_model = $('input[name=\'filter_model\']').val();
+
+	if (filter_model) {
+		url += '&filter_model=' + encodeURIComponent(filter_model);
+	}
+
+	var filter_price = $('input[name=\'filter_price\']').val();
+
+	if (filter_price) {
+		url += '&filter_price=' + encodeURIComponent(filter_price);
+	}
+
+	var filter_quantity = $('input[name=\'filter_quantity\']').val();
+
+	if (filter_quantity) {
+		url += '&filter_quantity=' + encodeURIComponent(filter_quantity);
+	}
+
+	var filter_status = $('select[name=\'filter_status\']').val();
+
+	if (filter_status != '*') {
+		url += '&filter_status=' + encodeURIComponent(filter_status);
+	}
+
+  var filter_image = $('select[name=\'filter_image\']').val();
+
+  if (filter_image != '*') {
+    url += '&filter_image=' + encodeURIComponent(filter_image);
+  }
+
+	location = url;
+});
+//--></script>
+<script type="text/javascript"><!--
+$('input[name=\'filter_name\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['product_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'filter_name\']').val(item.label);
+	}
+});
+
+$('input[name=\'filter_model\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_model=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['model'],
+						value: item['product_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'filter_model\']').val(item.label);
+	}
+});
+//--></script>
+<script type="text/javascript"><!--
+var key_price = {{ last_key_price }};
+
+function addStickerPrice() {
+	html  = '<div id="sticker-price-row' + key_price + '">';
+	html += '<div class="text-right"><button type="button" onclick="$(\'#sticker-price-row' + key_price + '\').remove();" class="btn btn-danger"><i class="fa fa-minus-circle"></i> {{ button_remove }}</button></div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-price-status' + key_price + '">{{ entry_status }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_price[' + key_price + '][status]" id="input-price-status' + key_price + '" class="form-control">';
+	html += '<option value="1" selected="selected">{{ text_enabled }}</option>';
+	html += '<option value="0">{{ text_disabled }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_price }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][min]" value="" placeholder="{{ entry_min }}" class="form-control" />';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][max]" value="" placeholder="{{ entry_max }}" class="form-control" />';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_date }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<div class="input-group date">';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][date_start]" value="" placeholder="{{ entry_date_start }}" class="form-control" data-date-format="YYYY-MM-DD" />';
+	html += '<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>';
+	html += '</div>';
+	html += '<div class="input-group date">';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][date_end]" value="" placeholder="{{ entry_date_end }}" class="form-control" data-date-format="YYYY-MM-DD" />';
+	html += '<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+    html += '<label class="col-sm-3 control-label" for="input-price-type' + key_price + '">{{ entry_type }}</label>';
+    html += '<div class="col-sm-9">';
+    html += '<select name="module_sticker_price[' + key_price + '][type]" class="form-control" id="input-price-type' + key_price + '">';
+	{% for i, type in module_sticker_types %}
+	html += '<option value="{{ i }}">{{ type }}</option>';
+	{% endfor %}
+	html += '</select>';
+    html += '</div>';
+    html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-price-position' + key_price + '">{{ entry_position }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_price[' + key_price + '][position]" id="input-price-position' + key_price + '" class="form-control">';
+	html += '<option value="left" selected="selected">{{ text_left }}</option>';
+	html += '<option value="right">{{ text_right }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-price-name-status' + key_price + '">{{ entry_name_status }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_price[' + key_price + '][name_status]" id="input-price-name-status' + key_price + '" class="form-control">';
+	html += '<option value="1" selected="selected">{{ text_enabled }}</option>';
+	html += '<option value="0">{{ text_disabled }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_name }}</label>';
+	html += '<div class="col-sm-9">';
+	{% for language in languages %}
+	html += '<div class="input-group">';
+	html += '<span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="" />';
+	html += '</div>';
+	{% endfor %}
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-price-sort-order' + key_price + '">{{ entry_sort_order }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<input type="text" name="module_sticker_price[' + key_price + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" />';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_image }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<a href="" id="thumb-image-price' + key_price + '" data-toggle="image" class="img-thumbnail"><img class="stickers" style="width: 100px;" src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_price[' + key_price + '][image]" value="" class="input-stickers" id="input-image-price' + key_price + '" />';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+
+	$('#sticker-price').append(html);
+	
+	$('.date').datetimepicker({
+		pickTime: false
+	});
+	
+	key_price++;
+}
+
+var key_custom = {{ last_key_custom }};
+
+function addStickerCustom() {
+	html  = '<div id="sticker-custom-row' + key_custom + '">';
+	html += '<div class="text-right"><button type="button" onclick="$(\'#sticker-custom-row' + key_custom + '\').remove();" class="btn btn-danger"><i class="fa fa-minus-circle"></i> {{ button_remove }}</button></div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-custom-status' + key_custom + '">{{ entry_status }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_custom[' + key_custom + '][status]" id="input-custom-status' + key_custom + '" class="form-control">';
+	html += '<option value="1" selected="selected">{{ text_enabled }}</option>';
+	html += '<option value="0">{{ text_disabled }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_date }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<div class="input-group date">';
+	html += '<input type="text" name="module_sticker_custom[' + key_custom + '][date_start]" value="" placeholder="{{ entry_date_start }}" class="form-control" data-date-format="YYYY-MM-DD" />';
+	html += '<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>';
+	html += '</div>';
+	html += '<div class="input-group date">';
+	html += '<input type="text" name="module_sticker_custom[' + key_custom + '][date_end]" value="" placeholder="{{ entry_date_end }}" class="form-control" data-date-format="YYYY-MM-DD" />';
+	html += '<span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+    html += '<label class="col-sm-3 control-label" for="input-custom-type' + key_custom + '">{{ entry_type }}</label>';
+    html += '<div class="col-sm-9">';
+    html += '<select name="module_sticker_custom[' + key_custom + '][type]" class="form-control" id="input-custom-type' + key_custom + '">';
+	{% for i, type in module_sticker_types %}
+	html += '<option value="{{ i }}">{{ type }}</option>';
+	{% endfor %}
+	html += '</select>';
+    html += '</div>';
+    html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-custom-position' + key_custom + '">{{ entry_position }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_custom[' + key_custom + '][position]" id="input-custom-position' + key_custom + '" class="form-control">';
+	html += '<option value="left" selected="selected">{{ text_left }}</option>';
+	html += '<option value="right">{{ text_right }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-custom-name-status' + key_custom + '">{{ entry_name_status }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<select name="module_sticker_custom[' + key_custom + '][name_status]" id="input-custom-name-status' + key_custom + '" class="form-control">';
+	html += '<option value="1" selected="selected">{{ text_enabled }}</option>';
+	html += '<option value="0">{{ text_disabled }}</option>';
+	html += '</select>';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_name }}</label>';
+	html += '<div class="col-sm-9">';
+	{% for language in languages %}
+	html += '<div class="input-group">';
+	html += '<span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>';
+	html += '<input type="text" name="module_sticker_custom[' + key_custom + '][{{ language.language_id }}][name]" placeholder="{{ entry_name }}" class="form-control" value="" />';
+	html += '</div>';
+	{% endfor %}
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label" for="input-custom-sort-order' + key_custom + '">{{ entry_sort_order }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<input type="text" name="module_sticker_custom[' + key_custom + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" />';
+	html += '</div>';
+	html += '</div>';
+	html += '<div class="form-group">';
+	html += '<label class="col-sm-3 control-label">{{ entry_image }}</label>';
+	html += '<div class="col-sm-9">';
+	html += '<a href="" id="thumb-image-custom' + key_custom + '" data-toggle="image" class="img-thumbnail"><img class="stickers" style="width: 100px;" src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="module_sticker_custom[' + key_custom + '][image]" value="" class="input-stickers" id="input-image-custom' + key_custom + '" />';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+
+	$('#sticker-custom').append(html);
+	
+	$('.date').datetimepicker({
+		pickTime: false
+	});
+	
+	key_custom++;
+}
+//--></script>
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	pickTime: false
+});
+//--></script>
+<style type="text/css">
+#tab-product .form-group {
+	margin-left: 0;
+	margin-right: 0;
+}
+</style>
+{{ footer }}

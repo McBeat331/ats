@@ -1,0 +1,8 @@
+.sticker-catalog.sticker-left{left: 0px;}
+.sticker-catalog.sticker-right{right: 0px;}
+.sticker-product.sticker-left{left: 0px;}
+.sticker-product.sticker-right{right: 0px;}
+.sticker-catalog{top: 5px;}
+.sticker-product{top: 5px;}
+.sticker-special{background: url('/image/catalog/stickers/star/bestseller.png');}
+.sticker-discount{background: url('/image/catalog/stickers/diagonal/custom1.png');}

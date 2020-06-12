@@ -102,38 +102,27 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         echo (isset($context["mytemplate"]) ? $context["mytemplate"] : null);
         echo "/stylesheet/codezeel/animate.css\" />
 
+
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"catalog/view/javascript/jquery/swiper/css/swiper.min.css\" />
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"catalog/view/javascript/jquery/swiper/css/opencart.css\" />
+
 ";
-        // line 36
+        // line 40
         if (((isset($context["direction"]) ? $context["direction"] : null) == "rtl")) {
-            // line 37
+            // line 41
             echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"catalog/view/theme/";
             echo (isset($context["mytemplate"]) ? $context["mytemplate"] : null);
             echo "/stylesheet/codezeel/rtl.css\">
 ";
         }
-        // line 39
-        echo "
-";
-        // line 40
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["styles"]) ? $context["styles"] : null));
-        foreach ($context['_seq'] as $context["_key"] => $context["style"]) {
-            // line 41
-            echo "<link href=\"style.href\" type=\"text/css\" rel=\"style.rel\" media=\"style.media\" />
-";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['style'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 43
         echo "
-
 ";
-        // line 45
+        // line 44
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["styles"]) ? $context["styles"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["style"]) {
-            // line 46
+            // line 45
             echo "<link href=\"";
             echo $this->getAttribute($context["style"], "href", array());
             echo "\" type=\"text/css\" rel=\"";
@@ -146,11 +135,15 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['style'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 48
+        // line 47
+        echo "
+
+";
+        // line 49
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["scripts"]) ? $context["scripts"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["script"]) {
-            // line 49
+            // line 50
             echo "<script src=\"";
             echo $context["script"];
             echo "\" type=\"text/javascript\"></script>
@@ -159,14 +152,14 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['script'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 52
         echo "
 ";
-        // line 52
+        // line 53
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["links"]) ? $context["links"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
-            // line 53
+            // line 54
             echo "<link href=\"";
             echo $this->getAttribute($context["link"], "href", array());
             echo "\" rel=\"";
@@ -177,11 +170,11 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['link'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 56
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["analytics"]) ? $context["analytics"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["analytic"]) {
-            // line 56
+            // line 57
             echo $context["analytic"];
             echo "
 ";
@@ -189,7 +182,7 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['analytic'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 59
         echo "<!-- Codezeel www.codezeel.com - Start -->
 <script type=\"text/javascript\" src=\"catalog/view/javascript/codezeel/custom.js\"></script>
 <script type=\"text/javascript\" src=\"catalog/view/javascript/codezeel/jstree.min.js\"></script>
@@ -211,29 +204,29 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
 </head>
 
 ";
-        // line 78
+        // line 79
         if (((isset($context["column_left"]) ? $context["column_left"] : null) && (isset($context["column_right"]) ? $context["column_right"] : null))) {
-            // line 79
+            // line 80
             $context["layoutclass"] = "layout-3";
-        } elseif ((        // line 80
+        } elseif ((        // line 81
 (isset($context["column_left"]) ? $context["column_left"] : null) || (isset($context["column_right"]) ? $context["column_right"] : null))) {
-            // line 81
+            // line 82
             if ((isset($context["column_left"]) ? $context["column_left"] : null)) {
-                // line 82
+                // line 83
                 $context["layoutclass"] = "layout-2 left-col";
-            } elseif (            // line 83
+            } elseif (            // line 84
 (isset($context["column_right"]) ? $context["column_right"] : null)) {
-                // line 84
+                // line 85
                 $context["layoutclass"] = "layout-2 right-col";
             }
         } else {
-            // line 87
+            // line 88
             $context["layoutclass"] = "layout-1";
         }
-        // line 89
+        // line 90
         echo "
 <body class=\"";
-        // line 90
+        // line 91
         echo (isset($context["class"]) ? $context["class"] : null);
         echo " ";
         echo (isset($context["layoutclass"]) ? $context["layoutclass"] : null);
@@ -254,13 +247,23 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
     \t<div class=\"row\">
 \t\t\t<div class=\"header-main\">
 \t\t\t\t";
-        // line 106
+        // line 107
         echo (isset($context["headertop"]) ? $context["headertop"] : null);
         echo "
+                ";
+        // line 108
+        echo (isset($context["formcreator_id51"]) ? $context["formcreator_id51"] : null);
+        echo "
+\t\t\t\t<script>
+                    jQuery(function(\$){
+                        \$('#formInput51-2').mask('(999) 999-9999');
+                    });
+
+\t\t\t\t</script>
 \t\t\t\t<div class=\"header-logo\">
 \t\t\t\t\t<div id=\"logo\">
 \t\t\t\t\t\t";
-        // line 109
+        // line 117
         if ((isset($context["logo"]) ? $context["logo"] : null)) {
             echo "<a href=\"";
             echo (isset($context["home"]) ? $context["home"] : null);
@@ -272,7 +275,7 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
             echo (isset($context["name"]) ? $context["name"] : null);
             echo "\" class=\"img-responsive\" /></a>";
         } else {
-            // line 110
+            // line 118
             echo "\t\t\t\t\t  \t<h1><a href=\"";
             echo (isset($context["home"]) ? $context["home"] : null);
             echo "\">";
@@ -280,85 +283,85 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
             echo "</a></h1>
 \t\t\t\t\t  \t";
         }
-        // line 112
+        // line 120
         echo "\t\t\t\t\t</div>
 \t\t\t\t </div>
 \t\t\t\t<div class=\"head-right-bottom\">
 \t\t\t\t\t<div class=\"header-cart\">";
-        // line 115
+        // line 123
         echo (isset($context["cart"]) ? $context["cart"] : null);
         echo "</div>
 \t\t\t\t</div>
 \t\t\t\t";
-        // line 118
+        // line 126
         echo "\t\t\t\t<div class=\"dropdown myaccount\">
 \t\t\t\t\t\t\t<a href=\"";
-        // line 119
+        // line 127
         echo (isset($context["account"]) ? $context["account"] : null);
         echo "\" title=\"";
         echo (isset($context["text_account"]) ? $context["text_account"] : null);
         echo "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
 \t\t\t\t\t\t\t\t<span class=\"hidden-xs hidden-sm hidden-md\">";
-        // line 120
+        // line 128
         echo (isset($context["text_account"]) ? $context["text_account"] : null);
         echo "</span>
 \t\t\t\t\t\t\t\t<span class=\"box-sub-heading\">";
-        // line 121
+        // line 129
         echo (isset($context["text_dec"]) ? $context["text_dec"] : null);
         echo "</span>
 \t\t\t\t\t\t\t\t<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></a>
 \t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t<ul class=\"dropdown-menu dropdown-menu-right myaccount-menu\">
 \t\t\t\t\t\t\t\t";
-        // line 125
+        // line 133
         if ((isset($context["logged"]) ? $context["logged"] : null)) {
-            // line 126
+            // line 134
             echo "\t\t\t\t\t\t\t\t<li><a href=\"";
             echo (isset($context["account"]) ? $context["account"] : null);
             echo "\">";
             echo (isset($context["text_account"]) ? $context["text_account"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 127
+            // line 135
             echo (isset($context["order"]) ? $context["order"] : null);
             echo "\">";
             echo (isset($context["text_order"]) ? $context["text_order"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 128
+            // line 136
             echo (isset($context["transaction"]) ? $context["transaction"] : null);
             echo "\">";
             echo (isset($context["text_transaction"]) ? $context["text_transaction"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 129
+            // line 137
             echo (isset($context["download"]) ? $context["download"] : null);
             echo "\">";
             echo (isset($context["text_download"]) ? $context["text_download"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 130
+            // line 138
             echo (isset($context["logout"]) ? $context["logout"] : null);
             echo "\">";
             echo (isset($context["text_logout"]) ? $context["text_logout"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t";
         } else {
-            // line 132
+            // line 140
             echo "\t\t\t\t\t\t\t\t<li><a href=\"";
             echo (isset($context["register"]) ? $context["register"] : null);
             echo "\">";
             echo (isset($context["text_register"]) ? $context["text_register"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 133
+            // line 141
             echo (isset($context["login"]) ? $context["login"] : null);
             echo "\">";
             echo (isset($context["text_login"]) ? $context["text_login"] : null);
             echo "</a></li>
 \t\t\t\t\t\t\t\t";
         }
-        // line 135
+        // line 143
         echo "\t\t\t\t\t\t\t\t<li><a href=\"";
         echo (isset($context["wishlist"]) ? $context["wishlist"] : null);
         echo "\" id=\"wishlist-total\" title=\"";
@@ -367,7 +370,7 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         echo (isset($context["text_wishlist"]) ? $context["text_wishlist"] : null);
         echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-        // line 136
+        // line 144
         echo (isset($context["shopping_cart"]) ? $context["shopping_cart"] : null);
         echo "\" title=\"";
         echo (isset($context["text_shopping_cart"]) ? $context["text_shopping_cart"] : null);
@@ -375,7 +378,7 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
         echo (isset($context["text_shopping_cart"]) ? $context["text_shopping_cart"] : null);
         echo "</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
-        // line 137
+        // line 145
         echo (isset($context["checkout"]) ? $context["checkout"] : null);
         echo "\" title=\"";
         echo (isset($context["text_checkout"]) ? $context["text_checkout"] : null);
@@ -385,29 +388,29 @@ class __TwigTemplate_b8a46903bced0b0a5b2d62f45d1f5f04fb040a06fed135c71f5b43c8ea5
 \t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t<div class=\"lang-curr\">
 \t\t\t\t\t\t\t\t\t";
-        // line 140
+        // line 148
         echo (isset($context["language"]) ? $context["language"] : null);
         echo "
 \t\t\t\t\t\t\t\t\t";
-        // line 141
+        // line 149
         echo (isset($context["currency"]) ? $context["currency"] : null);
         echo "
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</div>
 \t\t\t\t";
-        // line 145
+        // line 153
         echo (isset($context["search"]) ? $context["search"] : null);
         echo "
 \t\t\t";
-        // line 147
-        echo "\t\t\t
+        // line 155
+        echo "
 \t\t\t</div>
 \t\t</div>
 \t</div>
 </header>
 ";
-        // line 152
+        // line 160
         echo (isset($context["menu"]) ? $context["menu"] : null);
         echo "
 </div>
@@ -447,7 +450,7 @@ jQuery(window).resize(function() {quickbox();});
 
     public function getDebugInfo()
     {
-        return array (  411 => 152,  404 => 147,  400 => 145,  393 => 141,  389 => 140,  379 => 137,  371 => 136,  362 => 135,  355 => 133,  348 => 132,  341 => 130,  335 => 129,  329 => 128,  323 => 127,  316 => 126,  314 => 125,  307 => 121,  303 => 120,  297 => 119,  294 => 118,  289 => 115,  284 => 112,  276 => 110,  264 => 109,  258 => 106,  237 => 90,  234 => 89,  231 => 87,  227 => 84,  225 => 83,  223 => 82,  221 => 81,  219 => 80,  217 => 79,  215 => 78,  193 => 58,  185 => 56,  181 => 55,  170 => 53,  166 => 52,  163 => 51,  154 => 49,  150 => 48,  137 => 46,  133 => 45,  129 => 43,  122 => 41,  118 => 40,  115 => 39,  109 => 37,  107 => 36,  102 => 34,  98 => 33,  94 => 32,  90 => 31,  86 => 30,  79 => 26,  71 => 20,  65 => 18,  63 => 17,  57 => 15,  55 => 14,  51 => 13,  47 => 12,  36 => 6,  29 => 4,  23 => 3,  19 => 1,);
+        return array (  414 => 160,  407 => 155,  403 => 153,  396 => 149,  392 => 148,  382 => 145,  374 => 144,  365 => 143,  358 => 141,  351 => 140,  344 => 138,  338 => 137,  332 => 136,  326 => 135,  319 => 134,  317 => 133,  310 => 129,  306 => 128,  300 => 127,  297 => 126,  292 => 123,  287 => 120,  279 => 118,  267 => 117,  255 => 108,  251 => 107,  230 => 91,  227 => 90,  224 => 88,  220 => 85,  218 => 84,  216 => 83,  214 => 82,  212 => 81,  210 => 80,  208 => 79,  186 => 59,  178 => 57,  174 => 56,  163 => 54,  159 => 53,  156 => 52,  147 => 50,  143 => 49,  139 => 47,  126 => 45,  122 => 44,  119 => 43,  113 => 41,  111 => 40,  102 => 34,  98 => 33,  94 => 32,  90 => 31,  86 => 30,  79 => 26,  71 => 20,  65 => 18,  63 => 17,  57 => 15,  55 => 14,  51 => 13,  47 => 12,  36 => 6,  29 => 4,  23 => 3,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -485,18 +488,19 @@ jQuery(window).resize(function() {quickbox();});
 /* <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{  mytemplate }}/stylesheet/codezeel/lightbox.css" />*/
 /* <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{  mytemplate }}/stylesheet/codezeel/animate.css" />*/
 /* */
+/* */
+/* 	<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" />*/
+/* 	<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/swiper/css/opencart.css" />*/
+/* */
 /* {% if direction == 'rtl' %}*/
 /* <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{ mytemplate }}/stylesheet/codezeel/rtl.css">*/
 /* {% endif %}*/
 /* */
 /* {% for style in styles %}*/
-/* <link href="style.href" type="text/css" rel="style.rel" media="style.media" />*/
-/* {% endfor %}*/
-/* */
-/* */
-/* {% for style in styles %}*/
 /* <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />*/
 /* {% endfor %}*/
+/* */
+/* */
 /* {% for script in scripts %}*/
 /* <script src="{{ script }}" type="text/javascript"></script>*/
 /* {% endfor %}*/
@@ -556,6 +560,13 @@ jQuery(window).resize(function() {quickbox();});
 /*     	<div class="row">*/
 /* 			<div class="header-main">*/
 /* 				{{ headertop }}*/
+/*                 {{ formcreator_id51 }}*/
+/* 				<script>*/
+/*                     jQuery(function($){*/
+/*                         $('#formInput51-2').mask('(999) 999-9999');*/
+/*                     });*/
+/* */
+/* 				</script>*/
 /* 				<div class="header-logo">*/
 /* 					<div id="logo">*/
 /* 						{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}*/
@@ -596,7 +607,7 @@ jQuery(window).resize(function() {quickbox();});
 /* 						</div>*/
 /* 				{{ search }}*/
 /* 			{# </div> #}*/
-/* 			*/
+/* */
 /* 			</div>*/
 /* 		</div>*/
 /* 	</div>*/

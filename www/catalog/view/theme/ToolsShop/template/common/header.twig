@@ -33,17 +33,19 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{  mytemplate }}/stylesheet/codezeel/lightbox.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{  mytemplate }}/stylesheet/codezeel/animate.css" />
 
+
+	<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/swiper/css/opencart.css" />
+
 {% if direction == 'rtl' %}
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/{{ mytemplate }}/stylesheet/codezeel/rtl.css">
 {% endif %}
 
 {% for style in styles %}
-<link href="style.href" type="text/css" rel="style.rel" media="style.media" />
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
 {% endfor %}
 
 
-{% for style in styles %}
-{% endfor %}
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
@@ -103,6 +105,13 @@
     	<div class="row">
 			<div class="header-main">
 				{{ headertop }}
+                {{ formcreator_id51 }}
+				<script>
+                    jQuery(function($){
+                        $('#formInput51-2').mask('(999) 999-9999');
+                    });
+
+				</script>
 				<div class="header-logo">
 					<div id="logo">
 						{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
@@ -143,7 +152,7 @@
 						</div>
 				{{ search }}
 			{# </div> #}
-			
+
 			</div>
 		</div>
 	</div>

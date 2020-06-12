@@ -21,6 +21,7 @@ class ControllerCatalogProduct extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_catalog_product->addProduct($this->request->post);
+			
 
 			$this->session->data['success'] = $this->language->get('text_success');
 

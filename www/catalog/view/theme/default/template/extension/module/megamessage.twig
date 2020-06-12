@@ -1,0 +1,247 @@
+{% if megamessage_status is defined and megamessage_status %} 
+<div class="megamessage position-{{ placement }}">
+  {% if megamessage_message_status %} 
+  <a class="button-msg msg-messenger hidden-msg" href="https://m.me/{{ megamessage_message }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_messenger }}"></a>
+  {% endif %} 
+  {% if megamessage_line_status %} 
+  <a class="button-msg msg-line hidden-msg" href="line://ti/p/{{ megamessage_line }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_line }}"></a>
+  {% endif %} 
+  {% if megamessage_skype_status %} 
+  <a class="button-msg msg-skype hidden-msg" href="skype:live:{{ megamessage_skype }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_skype }}"></a>
+  {% endif %} 
+  {% if megamessage_vk_status %} 
+  <a class="button-msg msg-vk hidden-msg" href="https://vk.me/{{ megamessage_vk }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_vk }}"></a>
+  {% endif %} 
+  {% if megamessage_whatsapp_status %} 
+  <a class="button-msg msg-whatsapp hidden-msg" href="https://wa.me/{{ megamessage_whatsapp }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_whatsapp }}"></a>
+  {% endif %} 
+  {% if megamessage_telegram_status %} 
+  <a class="button-msg msg-telegram hidden-msg" href="https://t.me/{{ megamessage_telegram }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_telegram }}"></a>
+  {% endif %} 
+  {% if megamessage_viber_status %} 
+  <a class="button-msg msg-viber hidden-msg" href="viber://chat?number={% if (ios_os) %}{{ '+' }}{% endif %}{{ megamessage_viber }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_viber }}"></a>
+  {% endif %} 
+  {% if megamessage_mail_status %} 
+  <a class="button-msg msg-mail hidden-msg" href="mailto:{{ megamessage_mail }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_mail }}"></a>
+  {% endif %} 
+  {% if megamessage_phone_status %} 
+  <a class="button-msg msg-phone hidden-msg" href="tel:{{ megamessage_phone }}" data-toggle="tooltip" data-placement="{{ placement_tooltip }}" title="" data-original-title="{{ tooltip_phone }}"></a>
+  {% endif %} 
+  <div class="mm-button">
+    <div class="mm-button-img"></div>
+  </div>
+</div>
+{% endif %} 
+
+
+
+<style>
+  .megamessage {
+      position: fixed;
+      bottom: 30px;
+      z-index: 100000000000;
+  }
+  .position-left {
+      left: 30px
+  }
+  .position-right {
+      right: 30px;
+  }
+  .button-msg {
+      display: block;
+      width: 55px;
+      height: 55px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      transition: all 2s;
+      opacity: 1;
+  }
+  .msg-whatsapp {
+      background: #4ec859;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/whatsapp.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-telegram {
+      background: #3eade5;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/plane.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-viber {
+      background: #665cac;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/viber.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-phone {
+      background: #ec4848;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/telephone.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-email {
+      background: yellow;
+      border-radius: 50px;
+  }
+  .msg-skype {
+      background: #00a9e8;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/skype.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-messenger {
+      background: #018dff;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/messenger.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-vk {
+      background: #5181b8;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/vk.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-line {
+      background: #00b900;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/line.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .msg-mail {
+      background: #999;
+      border-radius: 50px;
+      background-image: url(/image/megamessage/envelope.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+  }
+  .hidden-msg {
+      display: none;
+      opacity: 0;
+  }
+
+  .mm-button {
+      background: {{ megamessage_logo }};
+      width: 55px;
+      height: 55px;
+      border-radius: 50px;
+      box-shadow: 0px 0px 5px 0px {{ megamessage_logo }};
+      -o-transition: transform 3s linear;
+      -ms-transition: transform 3s linear;
+      -moz-transition: transform 3s linear;
+      -webkit-transition: transform 3s linear;
+      transition: transform 3s linear;
+      cursor: pointer;
+      animation: shadow 1s linear infinite alternate;
+  }
+  .mm-button-img {
+    background-image: url(/image/megamessage/message.svg);
+      height: 55px;
+      width: 55px;
+      background-size: 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      transition-duration: 1s;
+  }
+  .mm-button.active .mm-button-img {
+      background-image: url(/image/megamessage/close.svg);
+  }
+  .mm-button.active .mm-button-img:hover {
+      transform: rotate(180deg);
+      transition: all 1s;
+  }
+  .mm-button-img:hover {
+    -o-transform: rotate3d(0, 1, 0, 180deg);
+    -ms-transform: rotate3d(0, 1, 0, 180deg);
+    -moz-transform: rotate3d(0, 1, 0, 180deg);
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  .active-msg {
+      animation: slide-up .4s linear;
+  }
+
+  div.test {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    margin: 200px;
+    animation: turning 4s infinite;
+  }
+
+  @keyframes shadow {
+      0% {
+          box-shadow: 0px 0px 0px 0px {{ megamessage_logo }};
+      }
+
+      to {
+          box-shadow: 0px 0px 25px 0px {{ megamessage_logo }};
+      }
+  }
+
+  @keyframes slide-up {
+      0% {
+          opacity: 0;
+          display: none;
+          margin-top: 0;
+          margin-bottom: 0;
+          -ms-transform: translateY(15px);
+          -webkit-transform: translateY(15px);
+          -moz-transform: translateY(15px);
+          -o-transform: translateY(15px);
+          transform: translateY(15px)
+      }
+      to {
+          opacity: 1;
+          display: block;
+          margin-top: 0;
+          margin-bottom: 15px;
+          -ms-transform: translateY(0);
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0)
+      }
+  }
+
+
+</style>

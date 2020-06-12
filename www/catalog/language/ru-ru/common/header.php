@@ -15,3 +15,6 @@ $_['text_checkout']      = 'Оформление заказа';
 $_['text_search']        = 'Поиск';
 $_['text_all']           = 'Смотреть Все';
 
+// Codezeel Added
+$_['text_callus']        = 'Связатся с нами:';
+$_['text_dec']            = 'Настройки';
